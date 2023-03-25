@@ -28,6 +28,49 @@
   color: #61dafb;
 }
 
+.profile-card {
+  width: 50%;
+  border-style: solid;
+}
+
+.profile-heading {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  justify-content: space-around;
+  border-bottom: solid;
+}
+
+.profile-pic {
+  height: 100px;
+}
+
+.skill-bar {
+  background-color: #2BC128;
+  border: 1px solid;
+}
+
+.Tab {
+  background-color: #C8FFC7;
+  border-color: #C8FFC7;
+  border-radius: 100px;
+  padding: 10px
+}
+
+.tab-container {
+  padding: 5px;
+}
+
+.profile-card-tabs {
+  display: flex;
+  padding: 10px
+}
+
+.trophies {
+  display: flex;
+  justify-content: space-around;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
