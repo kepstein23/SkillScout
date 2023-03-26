@@ -71,6 +71,13 @@
   justify-content: space-around;
 }
 
+.header {
+  background-color: #3424C6;
+  display: flex;
+  justify-content: space-evenly;
+  color: white
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
