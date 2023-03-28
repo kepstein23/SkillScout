@@ -9,10 +9,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .profile-card {
   width: 50%;
   border-style: solid;
@@ -31,13 +27,13 @@
 }
 
 .skill-bar {
-  background-color: #2BC128;
+  background-color: var(--medium-green);
   border: 1px solid;
 }
 
 .Tab {
-  background-color: #C8FFC7;
-  border-color: #C8FFC7;
+  background-color: var(--light-green);
+  border-color: var(--light-green);
   border-radius: 100px;
   padding: 10px
 }
@@ -57,7 +53,7 @@
 }
 
 .header {
-  background-color: #3424C6;
+  background-color: var(--primary);
   display: flex;
   justify-content: space-evenly;
   color: white
