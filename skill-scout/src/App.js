@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <div style={{display: "flex"}}>
+      <div style={{display: "flex"}}>
         <Filters 
           users={[]}
           filteredUsers={[]}
@@ -30,10 +30,12 @@ function App() {
           interests={["CSS", "Frontend", "Design"]}
           achievements={["achievement", "achievement", "achievement"]}
         />
-      </div> */}
-      <ProfilePage
+      </div>
+      {/* uncomment <ProfilePage/> and comment the rest of return() to view profile page */}
+      {/* TODO: implement router */}
+      {/* <ProfilePage
       
-      />
+      /> */}
     </div>
   );
 }
