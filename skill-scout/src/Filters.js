@@ -38,10 +38,15 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         )
     }
 
-    function handleSelect(type) {
-        if (type === "skill") {
-            setAppliedSkills(appliedSkills)
-        }
+    function onSelectSkill(selectedList) {
+        setAppliedSkills(selectedList)
+    }
+
+    function onSelectInterest(selectedList) {
+        setAppliedInterests(selectedList)
+    }
+    function onSelectDept(selectedList) {
+        setAppliedDept(selectedList)
     }
 
     return (
@@ -52,17 +57,19 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
                 options={skillOptions}
                 displayValue="name"
                 loadingMessage='Select Skill Filters'
-                onSelect={handleSelect("skill")}
+                onSelect={onSelectSkill}
             />
             <p className="bold">Interests</p>
             <Multiselect 
                 options={interestOptions}
                 displayValue="name"
+                onSelect={onSelectInterest}
             />
             <p className="bold">Department</p>
             <Multiselect 
                 options={deptOptions}
                 displayValue="name"
+                onSelect={onSelectDept}
             />
         </FilterContainer>
     )
