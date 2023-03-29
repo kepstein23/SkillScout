@@ -1,12 +1,20 @@
+import Header from './Header';
 import React from 'react';
+import { ProfileInfo } from './ProfileInfo';
+import { ProfileContact } from './ProfileContact';
 
 function ProfilePage() {
-  return (
-    <div>
-      <h1>Profile Page</h1>
-      {/* Add content for your page here */}
-    </div>
-  );
+    return(
+        <div className="Profile">
+            {/* <Header /> */}
+            <ProfileInfo>
+
+            </ProfileInfo>
+            <ProfileContact>
+                
+            </ProfileContact>
+        </div>
+    );
 }
 
-export default ProfilePage;
+export default ProfilePage
