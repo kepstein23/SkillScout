@@ -1,4 +1,10 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const FilterContainer = styled.div`
+    width: 220px;
+    padding: 0 24px;
+    `;
 
 export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts}) {
     //TODO change to multiselect dropdown componenet
@@ -31,26 +37,24 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     }
 
     return (
-        <div>
-            <h1>Filters</h1>
-            <h2>Skills</h2>
+        <FilterContainer>
+            <h3>Filters</h3>
+            <p className="bold">Skills</p>
             <select>
                 <option>Select a filter to apply</option>
                 {skillOptions}
             </select>
-            <h2>Interests</h2>
+            <p className="bold">Interests</p>
             <select>
                 <option>Select a filter to apply</option>
                 {interestOptions}
             </select>
-            <h2>Department</h2>
+            <p className="bold">Department</p>
             <select>
                 <option>Select a filter to apply</option>
                 {deptOptions}
             </select>
-        </div>
-        
-
+        </FilterContainer>
     )
 
 }
