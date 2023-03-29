@@ -55,7 +55,7 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
                 onSelect={handleSelect("skill")}
             />
             <p className="bold">Interests</p>
-            <<Multiselect 
+            <Multiselect 
                 options={interestOptions}
                 displayValue="name"
             />
