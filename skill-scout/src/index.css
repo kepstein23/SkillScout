@@ -53,6 +53,10 @@ p.bold {
   margin: 0;
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 body {
   margin: 0;
   font-family: var(--font-family);

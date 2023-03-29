@@ -24,6 +24,7 @@
 
 .profile-pic {
   height: 100px;
+  border-radius: 16px;
 }
 
 .skill-bar {

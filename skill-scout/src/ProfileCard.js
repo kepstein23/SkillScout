@@ -9,6 +9,7 @@ const ProfileCardContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding: 24px;
+    margin: 36px;
     gap: 32px;
 
     position: relative;
@@ -27,7 +28,7 @@ const TopProfile = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 96px;
+    gap: 24px;
 
     width: 100%;
     height: 100px;
@@ -51,7 +52,7 @@ const NameTitle = styled.div`
     padding: 0px;
     gap: 2px;
 
-    width: 408px;
+    max-width: 408px;
     // height: 68px;
 `;
 
@@ -61,7 +62,6 @@ const BottomProfile = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     padding: 0px;
-    gap: 63px;
 
     width: 100%;
     height: 152px;

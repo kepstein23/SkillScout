@@ -34,7 +34,7 @@ const Button = ({ type = 'primary', icon: IconComponent, text }) => {
     return (
         <ButtonComponent>
             {IconComponent && <IconComponent />}
-            {text && <p className='bold no-margin'>{text}</p>}
+            {text && <p className='no-margin no-wrap'>{text}</p>}
         </ButtonComponent>
     );
 };
