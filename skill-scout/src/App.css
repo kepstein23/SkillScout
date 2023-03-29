@@ -1,18 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,10 +7,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .profile-card {
@@ -46,19 +27,15 @@
 }
 
 .skill-bar {
-  background-color: #2BC128;
+  background-color: var(--medium-green);
   border: 1px solid;
 }
 
 .Tab {
-  background-color: #C8FFC7;
-  border-color: #C8FFC7;
+  background-color: var(--light-green);
+  border-color: var(--light-green);
   border-radius: 100px;
   padding: 10px
-}
-
-.tab-container {
-  padding: 5px;
 }
 
 .profile-card-tabs {
@@ -72,11 +49,213 @@
 }
 
 .header {
-  background-color: #3424C6;
+  background-color: var(--primary);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: white
 }
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 48px;
+
+  position: absolute;
+  width: 728px;
+  height: 150px;
+  left: 168px;
+  top: 151px;
+}
+
+.pinfo-name-title-block {
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.pinfo-name-text {
+  /* Zohaib Corrigan-Scantling */
+  position: absolute;
+  width: 530px;
+  height: 56px;
+  left: 198px;
+  top: 31px;
+
+  /* Default/Headings/h1 Bold */
+  /* font-family: 'DM Sans'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 56px;
+
+  /* identical to box height, or 122% */
+  letter-spacing: -0.05em;
+  color: #000000;
+}
+
+.pinfo-title-text {
+  position: absolute;
+  width: 192px;
+  height: 32px;
+  left: 198px;
+  top: 87px;
+  
+  /* Default/Headings/h3 Bold */
+  
+  /* font-family: 'DM Sans'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+  /* identical to box height, or 145% */
+  
+  letter-spacing: -0.01em;
+  
+  color: #000000;
+}
+
+.pinfo-profile-pic {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 16px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.profile-contact {
+  position: absolute;
+  width: 322px;
+  height: 258px;
+  left: 951px;
+  top: 151px;
+}
+
+.pcontact-container {
+
+  position: absolute;
+  width: 274px;
+  height: 191px;
+  left: 175px;
+  top: 10px;
+
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+gap: 32px;
+
+
+/* Default/White */
+
+background: #FFFFFF;
+/* Box Shadows/Small */
+
+box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
+border-radius: 6px;
+}
+
+.pcontact-item-container {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 1px;
+  
+  width: 274px;
+  height: 53px;
+  
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.pcontact-item-title {
+  width: 48px;
+height: 26px;
+
+/* Default/Body/Bold */
+
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 26px;
+/* identical to box height, or 144% */
+
+
+color: #000000;
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.pcontact-item-body {
+  width: 217px;
+  height: 26px;
+  
+  /* Default/Body/Bold */
+  
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
+  
+  
+  /* Default/Primary (Light) */
+  
+  color: #3424C6;
+  
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+
+.pcontact-new-request-btn {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 14px 14px 18px;
+  gap: 10px;
+
+  width: 174px;
+  height: 39px;
+
+  /* Default/Primary (Light) */
+
+  background: #3424C6;
+  border-radius: 6px;
+
+  color: white;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+
 
 @keyframes App-logo-spin {
   from {

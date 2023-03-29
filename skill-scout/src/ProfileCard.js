@@ -1,6 +1,96 @@
 import './App.css'
 import Tab from './Tab.js'
-import {Trophy} from "@phosphor-icons/react"
+import {Trophy, Plus} from "@phosphor-icons/react"
+import styled from 'styled-components';
+import Button from './components/Button.js'
+
+const ProfileCardContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 32px;
+
+    position: relative;
+    width: 1000px;
+    height: 332px;
+
+    background: white;
+
+    box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
+    border-radius: 8px;
+`;
+
+const TopProfile = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 96px;
+
+    width: 100%;
+    height: 100px;
+`;
+
+const PicNameTitle = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 18px;
+
+    width: 526px;
+    height: 100px;
+`;
+
+const NameTitle = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 2px;
+
+    width: 408px;
+    // height: 68px;
+`;
+
+const BottomProfile = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 63px;
+
+    width: 100%;
+    height: 152px;
+`;
+
+const Skills = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+
+    width: 237px;
+    height: 152px;
+`;
+
+const InterestTags = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    width: 316px;
+    height: 28px;
+`;
+
+
 function ProfileCard( {name, title, profilePic, skills, interests, achievements} ) {
     //[{name: "", progress: "10%"}]
     let skillsElements = [];
@@ -38,39 +128,39 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
     }
 
     return (
-        <div class="profile-card">
-            <div class="profile-heading">
-                <img class="profile-pic" src={profilePic} alt="profile"/>
-                <div>
-                    <h2>{name}</h2>
-                    <p>{title}</p>
-                </div>
-                <button>
-                    New Request
-                </button>
-            </div>
-            <div style={{display: "flex", justifyContent: "center"}}>
-                <div class="profile-card-skills">
-                    <h2>Top Skills</h2>
+        <ProfileCardContainer>
+            <TopProfile>
+                <PicNameTitle>
+                    <img class="profile-pic" src={profilePic} alt="profile"/>
+                    <NameTitle>
+                        <h2 style={{margin: 0}}>{name}</h2>
+                        <p style={{ margin: 0 }}>{title}</p>
+                    </NameTitle>
+                </PicNameTitle>
+                <Button type='primary' icon={Plus} text="New request" />
+            </TopProfile>
+            <BottomProfile>
+                <Skills>
+                    <p className='bold'>Top Skills</p>
                     {skillsElements}
-                </div>
+                </Skills>
                 <div>
-                    <h2>Interests</h2>
-                    <div class="profile-card-tabs">
+                    <p className='bold'>Interests</p>
+                    <InterestTags>
                         {interestElements}
-                    </div>
+                    </InterestTags>
                 </div>
                 <div>
-                    <h2>Achievements</h2>
+                    <p className='bold'>Achievements</p>
                     <div class="trophies">
                         {achievementElements}
                     </div>
                     
                 </div>
-            </div>
+            </BottomProfile>
             
             
-        </div>
+        </ProfileCardContainer>
     )
 }
 

@@ -1,9 +1,8 @@
-import './App.css';
-import ProfileCard from "./ProfileCard"
-import Filters from "./Filters"
-import profilePic from './profilepic.png'
-import Header from './Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import './App.css';
+import ProfilePage from './ProfilePage';
+import HomePage from './HomePage';
 
 function App() {
   const [allSkills, setAllSkills] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);
@@ -11,26 +10,14 @@ function App() {
   const [allDepts, setAllDepts] = useState(['Frontend', 'Design', 'Backend', 'Testing']);
 
   return (
-    <div className="App">
-      <Header />
-      <div style={{display: "flex"}}>
-        <Filters 
-          users={[]}
-          filteredUsers={[]}
-          allSkills={allSkills}
-          allInterests={allInterests}
-          allDepts={allDepts}
-        />
-        <ProfileCard
-          name="Zohaib Corrigan-Scantling"
-          title="Frontend Engineer"
-          profilePic={profilePic}
-          skills={[{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}]}
-          interests={["CSS", "Frontend", "Design"]}
-          achievements={["achievement", "achievement", "achievement"]}
-        />
+    <Router>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<HomePage />}  />
+          <Route path="/profile-page" element={<ProfilePage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 

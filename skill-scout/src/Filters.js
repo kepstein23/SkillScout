@@ -1,5 +1,11 @@
 import { useState } from "react";
 import Multiselect from 'multiselect-react-dropdown';
+import styled from "styled-components";
+
+const FilterContainer = styled.div`
+    width: 220px;
+    padding: 0 24px;
+    `;
 
 export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts}) {
     //TODO change to multiselect dropdown componenet
@@ -39,29 +45,26 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     }
 
     return (
-        <div>
-            
-            <h1>Filters</h1>
-            <h2>Skills</h2>
+        <FilterContainer>
+            <h3>Filters</h3>
+            <p className="bold">Skills</p>
             <Multiselect 
                 options={skillOptions}
                 displayValue="name"
                 loadingMessage='Select Skill Filters'
                 onSelect={handleSelect("skill")}
             />
-            <h2>Interests</h2>
-            <Multiselect 
+            <p className="bold">Interests</p>
+            <<Multiselect 
                 options={interestOptions}
                 displayValue="name"
             />
-            <h2>Department</h2>
+            <p className="bold">Department</p>
             <Multiselect 
                 options={deptOptions}
                 displayValue="name"
             />
-        </div>
-        
-
+        </FilterContainer>
     )
 
 }
