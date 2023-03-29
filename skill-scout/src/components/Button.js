@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import '../App.css'
 
 const ButtonContainer = styled.button`
   display: flex;
@@ -13,8 +14,8 @@ const ButtonContainer = styled.button`
   border: none;
   border-radius: 6px;
   font-size: 16px;
-  font-weight: bold;
   cursor: pointer;
+  font-family: var(--font-family);
 `;
 
 const PrimaryButton = styled(ButtonContainer)`
@@ -33,7 +34,7 @@ const Button = ({ type = 'primary', icon: IconComponent, text }) => {
     return (
         <ButtonComponent>
             {IconComponent && <IconComponent />}
-            {text && <span>{text}</span>}
+            {text && <p className='bold no-margin'>{text}</p>}
         </ButtonComponent>
     );
 };

@@ -30,7 +30,7 @@ function HomePage() {
           title="Frontend Engineer"
           profilePic={profilePic}
           skills={[{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}]}
-          interests={["CSS", "Frontend", "Design"]}
+          interests={["CSS", "Frontend", "Design", "Testing", "Java", "React"]}
           achievements={["achievement", "achievement", "achievement"]}
         />
       </div>

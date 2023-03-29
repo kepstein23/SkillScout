@@ -1,8 +1,8 @@
 export default function Tab({deletable, text}) {
     //TODO add deletable
     return (
-        <div class="tab-container">
-            <p><span class="Tab">{text}</span></p>
+        <div>
+            <p style={{margin: "0.5em 0"}}><span class="Tab">{text}</span></p>
         </div>
     )
 }
