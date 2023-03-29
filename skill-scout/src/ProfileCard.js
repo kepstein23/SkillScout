@@ -12,13 +12,10 @@ const ProfileCardContainer = styled.div`
     gap: 32px;
 
     position: relative;
-    width: 1001px;
+    width: 1000px;
     height: 332px;
 
-    /* Default/White */
-
-    background: #FFFFFF;
-    /* Box Shadows/Small */
+    background: white;
 
     box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
     border-radius: 8px;
@@ -32,7 +29,7 @@ const TopProfile = styled.div`
     padding: 0px;
     gap: 96px;
 
-    width: 953px;
+    width: 100%;
     height: 100px;
 `;
 
@@ -66,7 +63,7 @@ const BottomProfile = styled.div`
     padding: 0px;
     gap: 63px;
 
-    width: 953px;
+    width: 100%;
     height: 152px;
 `;
 
