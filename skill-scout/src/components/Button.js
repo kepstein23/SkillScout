@@ -28,11 +28,11 @@ const SecondaryButton = styled(ButtonContainer)`
   color: var(--dark-gray);
 `;
 
-const Button = ({ type = 'primary', icon: IconComponent, text }) => {
+const Button = ({ type = 'primary', icon: IconComponent, text, onClick }) => {
     const ButtonComponent = type === 'secondary' ? SecondaryButton : PrimaryButton;
 
     return (
-        <ButtonComponent>
+        <ButtonComponent onClick={onClick}>
             {IconComponent && <IconComponent />}
             {text && <p className='no-margin no-wrap'>{text}</p>}
         </ButtonComponent>

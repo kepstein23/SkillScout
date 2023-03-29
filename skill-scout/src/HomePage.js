@@ -29,7 +29,7 @@ function HomePage() {
           name="Zohaib Corrigan-Scantling"
           title="Frontend Engineer"
           profilePic={profilePic}
-          skills={[{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}]}
+          skills={[{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}, {name: "React", progress: "70%"}]}
           interests={["CSS", "Frontend", "Design", "Testing", "Java", "React"]}
           achievements={["achievement", "achievement", "achievement"]}
         />
