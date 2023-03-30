@@ -61,13 +61,13 @@
   flex-direction: row;
   align-items: center;
   padding: 0px;
-  gap: 48px;
+  gap: 18px;
 
   position: absolute;
   width: 728px;
   height: 150px;
-  left: 168px;
-  top: 151px;
+  left: 268px;
+  top: 131px;
 }
 
 .pinfo-name-title-block {
@@ -81,14 +81,14 @@
   position: absolute;
   width: 530px;
   height: 56px;
-  left: 198px;
+  left: 138px;
   top: 31px;
 
   /* Default/Headings/h1 Bold */
   /* font-family: 'DM Sans'; */
   font-style: normal;
   font-weight: 700;
-  font-size: 46px;
+  font-size: 32px;
   line-height: 56px;
 
   /* identical to box height, or 122% */
@@ -100,15 +100,15 @@
   position: absolute;
   width: 192px;
   height: 32px;
-  left: 198px;
-  top: 87px;
+  left: 138px;
+  top: 75px;
   
   /* Default/Headings/h3 Bold */
   
   /* font-family: 'DM Sans'; */
   font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
+  font-weight: 500;
+  font-size: 18px;
   line-height: 32px;
   /* identical to box height, or 145% */
   
@@ -118,8 +118,8 @@
 }
 
 .pinfo-profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 
   border-radius: 16px;
 
@@ -134,22 +134,22 @@
   position: absolute;
   width: 322px;
   height: 258px;
-  left: 951px;
-  top: 151px;
+  left: 801px;
+  top: 106px;
 }
 
 .pcontact-container {
 
   position: absolute;
-  width: 274px;
-  height: 191px;
+  width: 250px;
+  height: 200px;
   left: 175px;
-  top: 10px;
+  top: 26px;
 
   display: flex;
 flex-direction: column;
 align-items: flex-start;
-padding: 24px;
+padding: 21px;
 gap: 32px;
 
 
@@ -190,8 +190,8 @@ height: 26px;
 /* Default/Body/Bold */
 
 font-style: normal;
-font-weight: 700;
-font-size: 18px;
+font-weight: 650;
+font-size: 17px;
 line-height: 26px;
 /* identical to box height, or 144% */
 
@@ -210,8 +210,8 @@ flex-grow: 0;
   /* Default/Body/Bold */
   
   font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 550;
+  font-size: 16px;
   line-height: 26px;
   /* identical to box height, or 144% */
   

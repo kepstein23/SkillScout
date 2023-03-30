@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from './components/Button'
+import {Plus} from "@phosphor-icons/react"
 
 //TODO: use props
 export const ProfileContact = () => {
@@ -21,9 +23,9 @@ export const ProfileContact = () => {
                     @zohaibcs
                 </div>
             </div>
-            <button class='pcontact-new-request-btn' type="button">
+            <Button type='primary' icon={Plus} text="New request">
                 + New Request
-            </button>
+            </Button>
         </div>
        
     </div>
