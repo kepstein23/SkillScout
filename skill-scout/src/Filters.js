@@ -7,11 +7,11 @@ const FilterContainer = styled.div`
     padding: 0 24px;
     `;
 
-export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts}) {
+export default function Filters({users, filteredUsers, setFilteredUsers, allSkills, allInterests, allDepts, setAppliedDept, setAppliedInterests, setAppliedSkills, appliedSkills}) {
     //TODO change to multiselect dropdown componenet
-    const [appliedSkills, setAppliedSkills] = useState([]);
-    const [appliedInterests, setAppliedInterests] = useState([]);
-    const [appliedDept, setAppliedDept] = useState([]);
+    // const [appliedSkills, setAppliedSkills] = useState([]);
+    // const [appliedInterests, setAppliedInterests] = useState([]);
+    // const [appliedDept, setAppliedDept] = useState([]);
 
     let skillOptions = [];
     let interestOptions = [];
@@ -39,7 +39,17 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     }
 
     function onSelectSkill(selectedList) {
-        setAppliedSkills(selectedList)
+        setAppliedSkills(selectedList);
+        setFilteredUsers(filteredUsers.filter((user) => {
+            for (let i = 0; i < user.skills.length; i++) {
+                if (appliedSkills.includes(user.skills[i])) {
+                    console.log(user.name);
+                    return true;
+                }
+            }
+            return false;
+        }));
+        console.log(filteredUsers.length);
     }
 
     function onSelectInterest(selectedList) {
