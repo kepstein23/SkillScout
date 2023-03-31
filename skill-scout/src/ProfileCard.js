@@ -3,6 +3,7 @@ import Tab from './Tab.js'
 import {Trophy, Plus} from "@phosphor-icons/react"
 import styled from 'styled-components';
 import Button from './components/Button'
+import ButtonPopover from './components/ButtonPopover';
 import SkillBar from './components/SkillBar';
 
 const ProfileCardContainer = styled.div`
@@ -139,7 +140,8 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                         <p style={{ margin: 0 }}>{title}</p>
                     </NameTitle>
                 </PicNameTitle>
-                <Button type='primary' icon={Plus} text="New request" />
+                <ButtonPopover icon={Plus} text="New request" />
+                {/* <Button type='primary' icon={Plus} text="New request" showPopover /> */}
             </TopProfile>
             <BottomProfile>
                 <Skills>
@@ -160,8 +162,8 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                     
                 </div>
             </BottomProfile>
-            
-            
+
+
         </ProfileCardContainer>
     )
 }

@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import Popover from './Popover';
 import '../App.css'
 
 const ButtonContainer = styled.button`
@@ -28,14 +30,29 @@ const SecondaryButton = styled(ButtonContainer)`
   color: var(--dark-gray);
 `;
 
+const ButtonWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
 const Button = ({ type = 'primary', icon: IconComponent, text, onClick }) => {
+    // const [isPopoverVisible, setIsPopoverVisible] = useState(false);
     const ButtonComponent = type === 'secondary' ? SecondaryButton : PrimaryButton;
 
+    // const handleClick = () => {
+    //     if (showPopover) {
+    //         setIsPopoverVisible(!isPopoverVisible);
+    //     }
+    // };
+
     return (
-        <ButtonComponent onClick={onClick}>
-            {IconComponent && <IconComponent />}
-            {text && <p className='no-margin no-wrap'>{text}</p>}
-        </ButtonComponent>
+        <ButtonWrapper>
+            <ButtonComponent onClick={onClick}>
+                {IconComponent && <IconComponent />}
+                {text && <p className='no-margin no-wrap'>{text}</p>}
+            </ButtonComponent>
+            {/* {isPopoverVisible && (<Popover />)} */}
+        </ButtonWrapper>
     );
 };
 
