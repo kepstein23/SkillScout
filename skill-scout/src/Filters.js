@@ -1,5 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
+import FilterSelect from "./components/FilterSelect";
+// import Multiselect from 'multiselect-react-dropdown';
+
 
 const FilterContainer = styled.div`
     display: flex;
@@ -45,20 +48,16 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         <FilterContainer>
             <h3>Filters</h3>
             <p className="bold">Skills</p>
-            <select>
+            <FilterSelect options={allSkills} />
+            {/* <select>
                 <option>Select a filter to apply</option>
                 {skillOptions}
-            </select>
+            </select> */}
             <p className="bold">Interests</p>
-            <select>
-                <option>Select a filter to apply</option>
-                {interestOptions}
-            </select>
+            <FilterSelect options={allInterests} />
             <p className="bold">Department</p>
-            <select>
-                <option>Select a filter to apply</option>
-                {deptOptions}
-            </select>
+            <FilterSelect options={allDepts} />
+
         </FilterContainer>
     )
 

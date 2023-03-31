@@ -11,7 +11,7 @@ import profilePic from './profilepic.png';
 function HomePage() {
 
   const [allSkills, setAllSkills] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);
-  const [allInterests, setAllInterests] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);
+  const [allInterests, setAllInterests] = useState(['Frontend', 'React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma', 'Design', 'Testing', 'Backend']);
   const [allDepts, setAllDepts] = useState(['Frontend', 'Design', 'Backend', 'Testing']);
 
   return (

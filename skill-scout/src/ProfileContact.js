@@ -26,7 +26,6 @@ export const ProfileContact = () => {
             </div>
             <ButtonPopover  icon={Plus} text="New request"/>
         </div>
-       
     </div>
   )
 }
