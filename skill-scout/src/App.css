@@ -244,7 +244,7 @@ flex-grow: 0;
 
   /* Default/Primary (Light) */
 
-  background: #3424C6;
+  background: var(--primary);
   border-radius: 6px;
 
   color: white;
@@ -256,6 +256,27 @@ flex-grow: 0;
   flex-grow: 0;
 }
 
+.highlightOption {
+  background-color: var(--primary) !important;
+  color: white;
+}
+
+.multiSelectContainer li:hover {
+  background-color: var(--primary) !important;
+  color: white;
+}
+
+.icon_cancel {
+  color: var(--dark-green) !important;
+}
+
+.custom-close {
+  display: flex;
+  padding: 0 4px !important;
+  font-style: normal !important;
+  color: black !important;
+  cursor: pointer;
+}
 
 
 @keyframes App-logo-spin {
