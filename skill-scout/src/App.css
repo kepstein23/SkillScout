@@ -278,6 +278,10 @@ flex-grow: 0;
   cursor: pointer;
 }
 
+.multiSelectContainer input {
+  font-family: var(--font-family) !important;
+}
+
 
 @keyframes App-logo-spin {
   from {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import Popover from './Popover';
+import { toast } from 'react-toastify';
 
 const Container = styled.div`
     position: relative;
@@ -23,6 +24,9 @@ const ButtonPopover = ({ type = 'primary', icon: IconComponent, text }) => {
     const handleSubmit = () => {
         setIsPopoverVisible(false);
         console.log('submit');
+        toast.success('Your request was submitted.', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+        });
     };
 
     return (

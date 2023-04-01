@@ -11,6 +11,10 @@ const HeaderContainer = styled.div`
   padding: 15px;
   background-color: var(--primary);
   color: white;
+  position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
 `;
 
 const Logo = styled.h1`

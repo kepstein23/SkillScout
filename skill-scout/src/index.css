@@ -8,6 +8,8 @@
   --medium-green: #2BC128;
   --dark-green: #0D7D0B;
   --font-family: 'DM Sans', sans-serif;
+  --toastify-font-family: 'DM Sans', sans-serif !important;
+  --toastify-color-success: var(--medium-green) !important;
 }
 
 h1 {

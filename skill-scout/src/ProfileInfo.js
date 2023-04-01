@@ -1,5 +1,5 @@
 import React from 'react'
-import profilePic from './profilepic.png'
+import profilePic from './img/zohaib.png'
 
 //TODO: use props
 export const ProfileInfo = () => {
