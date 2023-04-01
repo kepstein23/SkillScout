@@ -5,11 +5,12 @@ import FilterSelect from "./components/FilterSelect";
 
 
 const FilterContainer = styled.div`
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px;
+    gap: 12px;
     width: 220px;
     padding: 0 24px;
 `;
@@ -48,15 +49,11 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         <FilterContainer>
             <h3>Filters</h3>
             <p className="bold">Skills</p>
-            <FilterSelect options={allSkills} />
-            {/* <select>
-                <option>Select a filter to apply</option>
-                {skillOptions}
-            </select> */}
+            <FilterSelect options={allSkills} placeholder="Select skills" />
             <p className="bold">Interests</p>
-            <FilterSelect options={allInterests} />
+            <FilterSelect options={allInterests} placeholder="Select interests" />
             <p className="bold">Department</p>
-            <FilterSelect options={allDepts} />
+            <FilterSelect options={allDepts} placeholder="Select department" />
 
         </FilterContainer>
     )
