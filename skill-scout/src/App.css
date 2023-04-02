@@ -76,6 +76,25 @@
   flex-grow: 0;
 }
 
+.pinfo-availability {
+  position: absolute;
+  width: 728px;
+  height: 150px;
+  left: 0px;
+  top: 131px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.pinfo-av-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 10px
+}
+
 .pinfo-name-text {
   /* Zohaib Corrigan-Scantling */
   position: absolute;
@@ -244,7 +263,7 @@ flex-grow: 0;
 
   /* Default/Primary (Light) */
 
-  background: #3424C6;
+  background: var(--primary);
   border-radius: 6px;
 
   color: white;
@@ -256,6 +275,31 @@ flex-grow: 0;
   flex-grow: 0;
 }
 
+.highlightOption {
+  background-color: var(--primary) !important;
+  color: white;
+}
+
+.multiSelectContainer li:hover {
+  background-color: var(--primary) !important;
+  color: white;
+}
+
+.icon_cancel {
+  color: var(--dark-green) !important;
+}
+
+.custom-close {
+  display: flex;
+  padding: 0 4px !important;
+  font-style: normal !important;
+  color: black !important;
+  cursor: pointer;
+}
+
+.multiSelectContainer input {
+  font-family: var(--font-family) !important;
+}
 
 
 @keyframes App-logo-spin {

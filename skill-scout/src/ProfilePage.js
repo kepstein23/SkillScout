@@ -13,7 +13,9 @@ const BioProfile = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 0px;  
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 270px;
 
     width: 50%;
     height: 100%;
@@ -24,7 +26,8 @@ const BottomProfile = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding: 350px 270px;
+    padding-top: 350px;
+    padding-left: 270px;
     gap: 60px;
 
     width: 50%;
@@ -37,7 +40,7 @@ const BioText = styled.div`
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-
+    font-weight: 600;
     width: 237px;
     height: 100%;
 `;
@@ -131,14 +134,20 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements} 
                     
                 </div>
             </BottomProfile>
-            {/* <BioProfile>
+            {/* <div class="biography"> 
+                <p>Bio</p>
+                <p> Frontend Engineer with expertise in React, CSS, and HTML.
+                    Passionate about creating beautiful and engaging user interfaces.
+                    Interested in data analytics, algorithms, and animation. </p>
+            </div> */}
+            <BioProfile>
                 <BioText>
                 <p className='bold'>Bio</p>
                 <p> Frontend Engineer with expertise in React, CSS, and HTML.
                      Passionate about creating beautiful and engaging user interfaces.
                       Interested in data analytics, algorithms, and animation. </p>
                 </BioText>
-            </BioProfile> */}
+            </BioProfile>
         </div>
     );
 }

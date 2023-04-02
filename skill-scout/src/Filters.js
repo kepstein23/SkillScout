@@ -2,13 +2,16 @@ import { useState } from "react";
 import Multiselect from 'multiselect-react-dropdown';
 import styled from "styled-components";
 import ProfileCard from "./ProfileCard";
+import FilterSelect from "./components/FilterSelect";
+// import Multiselect from 'multiselect-react-dropdown';
 
 const FilterContainer = styled.div`
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px;
+    gap: 12px;
     width: 220px;
     padding: 0 24px;
 `;
@@ -114,6 +117,13 @@ export default function Filters({users, filteredUsers, setFilteredUsers, allSkil
                 displayValue="name"
                 onSelect={onSelectDept}
             />
+            
+            {*/<FilterSelect options={allSkills} placeholder="Select skills" />
+            <p className="bold">Interests</p>
+            <FilterSelect options={allInterests} placeholder="Select interests" />
+            <p className="bold">Department</p>
+            <FilterSelect options={allDepts} placeholder="Select department" />*/}
+
         </FilterContainer>
     )
 

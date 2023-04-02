@@ -2,19 +2,21 @@ import './App.css'
 import Tab from './Tab.js'
 import {Trophy, Plus} from "@phosphor-icons/react"
 import styled from 'styled-components';
-import Button from './components/Button'
+import ButtonPopover from './components/ButtonPopover';
 import SkillBar from './components/SkillBar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProfileCardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 26px;
+    padding: 24px;
     margin: 36px;
     gap: 32px;
 
     position: relative;
-    width: 1000px;
+    width: calc(100% - 72px); // Subtract the margin from the total available width
     height: 100%;
 
     background: white;
@@ -42,7 +44,7 @@ const PicNameTitle = styled.div`
     padding: 0px;
     gap: 18px;
 
-    width: 526px;
+    width: 100%;
     height: 100px;
 `;
 
@@ -88,7 +90,6 @@ const InterestTags = styled.div`
     flex-wrap: wrap;
 
     width: 316px;
-    height: 28px;
 `;
 
 
@@ -122,7 +123,7 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
     for (let i = 0; i < achievements.length; i++) {
         const achievement = achievements[i];
         achievementElements.push(
-            <div class="trophy">
+            <div className="trophy">
                 <Trophy/>
             </div>
             
@@ -139,7 +140,9 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                         <p style={{ margin: 0 }}>{title}</p>
                     </NameTitle>
                 </PicNameTitle>
-                <Button type='primary' icon={Plus} text="New request" />
+                <ButtonPopover icon={Plus} text="New request" />
+                <ToastContainer />
+                {/* <Button type='primary' icon={Plus} text="New request" showPopover /> */}
             </TopProfile>
             <BottomProfile>
                 <Skills>
@@ -153,15 +156,15 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                     </InterestTags>
                 </div>
                 <div>
-                    <p className='bold'>Achievements</p>
+                    <p className='bold' style={{width: '100px'}}>Badges</p>
                     <div class="trophies">
                         {achievementElements}
                     </div>
                     
                 </div>
             </BottomProfile>
-            
-            
+
+
         </ProfileCardContainer>
     )
 }

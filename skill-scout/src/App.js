@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import ProfilePage from './ProfilePage';
 import HomePage from './HomePage';
-import profilePic from './profilepic.png';
+import profilePic from './img/zohaib.png';
 
 function App() {
   const [allSkills, setAllSkills] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);

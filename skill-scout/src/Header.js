@@ -2,6 +2,7 @@ import './App.css'
 import { User, PaperPlaneTilt } from "@phosphor-icons/react"
 import Button from './components/Button.js'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 const HeaderContainer = styled.div`
@@ -11,6 +12,10 @@ const HeaderContainer = styled.div`
   padding: 15px;
   background-color: var(--primary);
   color: white;
+  position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
 `;
 
 const Logo = styled.h1`
@@ -38,10 +43,14 @@ export default function Header() {
 
     return (
         <HeaderContainer>
-            <Logo>SkillScout</Logo>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+                <Logo style={{ color: 'white'}}>SkillScout</Logo>
+            </Link>
             <SearchBar placeholder="Search..." />
             <LeftButtons>
-                <Button type="secondary" icon={User} />
+                <Link to="/profile-page">
+                    <Button type="secondary" icon={User} />
+                </Link>
                 <Button type="secondary" icon={PaperPlaneTilt} />
                 {/* <Button type="secondary" IconComponent={PaperPlaneTilt} /> */}
                 {/* <button>Button 1</button>
