@@ -6,6 +6,7 @@ import ButtonPopover from './components/ButtonPopover';
 import SkillBar from './components/SkillBar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const ProfileCardContainer = styled.div`
     display: flex;
@@ -133,13 +134,15 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
     return (
         <ProfileCardContainer>
             <TopProfile>
-                <PicNameTitle>
-                    <img class="profile-pic" src={profilePic} alt="profile"/>
-                    <NameTitle>
-                        <h2 style={{margin: 0}}>{name}</h2>
-                        <p style={{ margin: 0 }}>{title}</p>
-                    </NameTitle>
-                </PicNameTitle>
+                    <PicNameTitle>
+                        <img class="profile-pic" src={profilePic} alt="profile"/>
+                        <Link to='/profile-page' class="profile-card-top-clickable">
+                            <NameTitle>
+                                <h2 style={{margin: 0}}>{name}</h2>
+                                <p style={{ margin: 0 }}>{title}</p>
+                            </NameTitle>
+                        </Link>
+                    </PicNameTitle>
                 <ButtonPopover icon={Plus} text="New request" />
                 <ToastContainer />
                 {/* <Button type='primary' icon={Plus} text="New request" showPopover /> */}
