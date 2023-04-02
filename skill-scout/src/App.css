@@ -76,6 +76,25 @@
   flex-grow: 0;
 }
 
+.pinfo-availability {
+  position: absolute;
+  width: 728px;
+  height: 150px;
+  left: 0px;
+  top: 131px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.pinfo-av-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 10px
+}
+
 .pinfo-name-text {
   /* Zohaib Corrigan-Scantling */
   position: absolute;
