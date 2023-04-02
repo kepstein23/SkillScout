@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Multiselect from 'multiselect-react-dropdown';
 import styled from "styled-components";
+import ProfileCard from "./ProfileCard";
 
 const FilterContainer = styled.div`
     display: flex;
@@ -12,7 +13,7 @@ const FilterContainer = styled.div`
     padding: 0 24px;
 `;
 
-export default function Filters({users, filteredUsers, setFilteredUsers, allSkills, allInterests, allDepts, setAppliedDept, setAppliedInterests, setAppliedSkills, appliedSkills}) {
+export default function Filters({users, filteredUsers, setFilteredUsers, allSkills, allInterests, allDepts, setAppliedDept, setAppliedInterests, setAppliedSkills, appliedSkills, filteredCards, setFilteredCards, allCards}) {
     //TODO change to multiselect dropdown componenet
     // const [appliedSkills, setAppliedSkills] = useState([]);
     // const [appliedInterests, setAppliedInterests] = useState([]);
@@ -44,17 +45,38 @@ export default function Filters({users, filteredUsers, setFilteredUsers, allSkil
     }
 
     function onSelectSkill(selectedList) {
-        setAppliedSkills(selectedList);
-        setFilteredUsers(filteredUsers.filter((user) => {
-            for (let i = 0; i < user.skills.length; i++) {
-                if (appliedSkills.includes(user.skills[i])) {
-                    console.log(user.name);
-                    return true;
-                }
-            }
-            return false;
-        }));
-        console.log(filteredUsers.length);
+        // setAppliedSkills(selectedList);
+        // const filtered = [];
+        // for (let i = 0; i < filteredUsers.length; i++) {
+        //     const user = filteredUsers[i];
+        //     for (let j = 0; j < appliedSkills.length; i++) {
+        //         if (appliedSkills[i].name === user.skills[i].name) {
+        //             console.log(user.name);
+        //             filtered.push(user);
+        //         }
+        //     }
+        // }
+        // setFilteredUsers(filtered);
+        // const cards = []
+        // for (let i = 0; i < filteredUsers.length; i++) {
+        //     const user = filteredUsers[i];
+        //     cards.push(
+        //         <ProfileCard 
+        //             name={user.name}
+        //             title={user.title}
+        //             profilePic={user.profilePic}
+        //             skills={user.skills}
+        //             interests={user.interests}
+        //             achievements={user.achievements}
+        //         />
+        //     )
+        // }
+        // setFilteredCards(cards);
+        // console.log(filteredUsers.length);
+        // console.log(filteredCards);
+
+        setFilteredUsers(filteredUsers[0]);
+        setFilteredCards(filteredCards[0]);
     }
 
     function onSelectInterest(selectedList) {
@@ -62,6 +84,11 @@ export default function Filters({users, filteredUsers, setFilteredUsers, allSkil
     }
     function onSelectDept(selectedList) {
         setAppliedDept(selectedList)
+    }
+
+    function onRemoveSkill() {
+        setFilteredUsers(users);
+        setFilteredCards(allCards)
     }
 
     return (
@@ -73,6 +100,7 @@ export default function Filters({users, filteredUsers, setFilteredUsers, allSkil
                 displayValue="name"
                 loadingMessage='Select Skill Filters'
                 onSelect={onSelectSkill}
+                onRemove={onRemoveSkill}
             />
             <p className="bold">Interests</p>
             <Multiselect 

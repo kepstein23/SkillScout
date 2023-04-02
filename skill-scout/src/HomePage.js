@@ -62,6 +62,8 @@ function HomePage() {
     )
   }
 
+  const [filteredCards, setFilteredCards] = useState(userProfileCards);
+
   return (
     <>
     <Header />
@@ -77,15 +79,14 @@ function HomePage() {
           setAppliedInterests={setAppliedInterests}
           setAppliedSkills={setAppliedSkills}
           appliedSkills={appliedSkills}
+          filteredCards={filteredCards}
+          setFilteredCards={setFilteredCards}
+          allCards={userProfileCards}
         />
-        <ProfileCard
-          name="Zohaib Corrigan-Scantling"
-          title="Frontend Engineer"
-          profilePic={profilePic}
-          skills={[{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}, {name: "React", progress: "70%"}]}
-          interests={["CSS", "Frontend", "Design", "Testing", "Java", "React"]}
-          achievements={["achievement", "achievement", "achievement"]}
-        />
+        <div>
+          {filteredCards}
+        </div>
+        
       </div>
       <ul>
         <li>
