@@ -2,18 +2,20 @@ import './App.css'
 import Tab from './Tab.js'
 import {Trophy, Plus} from "@phosphor-icons/react"
 import styled from 'styled-components';
-import Button from './components/Button.js'
+import Button from './components/Button'
+import SkillBar from './components/SkillBar';
 
 const ProfileCardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 24px;
+    padding: 26px;
+    margin: 36px;
     gap: 32px;
 
     position: relative;
     width: 1000px;
-    height: 332px;
+    height: 100%;
 
     background: white;
 
@@ -27,7 +29,7 @@ const TopProfile = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 96px;
+    gap: 24px;
 
     width: 100%;
     height: 100px;
@@ -51,7 +53,7 @@ const NameTitle = styled.div`
     padding: 0px;
     gap: 2px;
 
-    width: 408px;
+    max-width: 408px;
     // height: 68px;
 `;
 
@@ -61,10 +63,9 @@ const BottomProfile = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     padding: 0px;
-    gap: 63px;
 
     width: 100%;
-    height: 152px;
+    height: 100%;
 `;
 
 const Skills = styled.div`
@@ -72,10 +73,10 @@ const Skills = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 4px;
+    gap: 8px;
 
     width: 237px;
-    height: 152px;
+    height: 100%;
 `;
 
 const InterestTags = styled.div`
@@ -97,10 +98,11 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
     for (let i = 0; i < skills.length; i++) {
         const skill = skills[i];
         skillsElements.push(
+            <SkillBar title={skill.name} width={skill.progress}/>
             //TODO set div width and spacing between
-            <div class="skill-bar" style={{width: skill.progress}}>
-                <p>{skill.name}</p>
-            </div>
+            // <div class="skill-bar" style={{width: skill.progress}}>
+            //     <p>{skill.name}</p>
+            // </div>
         )
     }
 
@@ -144,7 +146,7 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                     <p className='bold'>Top Skills</p>
                     {skillsElements}
                 </Skills>
-                <div>
+                <div style={{height: "100%"}}>
                     <p className='bold'>Interests</p>
                     <InterestTags>
                         {interestElements}

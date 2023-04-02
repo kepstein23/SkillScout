@@ -3,9 +3,14 @@ import Multiselect from 'multiselect-react-dropdown';
 import styled from "styled-components";
 
 const FilterContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
     width: 220px;
     padding: 0 24px;
-    `;
+`;
 
 export default function Filters({users, filteredUsers, setFilteredUsers, allSkills, allInterests, allDepts, setAppliedDept, setAppliedInterests, setAppliedSkills, appliedSkills}) {
     //TODO change to multiselect dropdown componenet
