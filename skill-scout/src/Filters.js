@@ -118,11 +118,11 @@ export default function Filters({users, filteredUsers, setFilteredUsers, allSkil
                 onSelect={onSelectDept}
             />
             
-            {*/<FilterSelect options={allSkills} placeholder="Select skills" />
+            {/* <FilterSelect options={allSkills} placeholder="Select skills" />
             <p className="bold">Interests</p>
             <FilterSelect options={allInterests} placeholder="Select interests" />
             <p className="bold">Department</p>
-            <FilterSelect options={allDepts} placeholder="Select department" />*/}
+            <FilterSelect options={allDepts} placeholder="Select department" /> */}
 
         </FilterContainer>
     )

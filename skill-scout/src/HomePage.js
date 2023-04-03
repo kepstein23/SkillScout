@@ -22,21 +22,36 @@ function HomePage() {
     {
       name: "Zohaib Corrigan-Scantling",
       title: "Frontend Engineer",
-      profilePic: profilePic,
+      profilePic: profilePictures.zohaib,
       skills: [{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}],
       interests: ["CSS", "Frontend", "Design", "Testing", "Java", "React"],
       achievements: ["achievement", "achievement", "achievement"]
 
     },
     {
-      name: "Eli Nathan",
-      title: "Designer",
-      profilePic: profilePic,
-      skills: [{name: "HTML", progress:"70%"}, {name: "Figma", progress: "90%"}, {name: "CSS", progress: "55%"}],
-      interests: ["CSS", "Frontend", "Design", "React"],
-      achievements: ["achievement", "achievement", "achievement"]
-
+      name: "Grace Lin",
+      title: "Data Analyst",
+      profilePic:profilePictures.grace,
+      skills: [
+        { name: "Python", progress: "90%" },
+        { name: "SQL", progress: "80%" },
+        { name: "Data Visualization", progress: "75%" },
+      ],
+      interests: ["Data Analysis", "Machine Learning", "Big Data", "Statistics"],
+      achievements: ["Certified Data Analyst", "Data Science Competition Winner", "Published Research Paper"]
     },
+    {
+      name: "Mark Johnson",
+      title: "Head Researcher",
+      profilePic: profilePictures.mark,
+      skills: [
+        { name: "Research Methodology", progress: "95%" },
+        { name: "Python", progress: "80%" },
+        { name: "Project Management", progress: "85%" },
+      ],
+      interests: ["Scientific Research", "Innovation", "AI", "Data Science"],
+      achievements: ["Best Research Paper Award", "Research Grant Recipient", "Innovative Research Award"]
+    }
   ]
 
   const [filteredUsers, setFilteredUsers] = useState(users);
@@ -96,9 +111,9 @@ function HomePage() {
           setFilteredCards={setFilteredCards}
           allCards={userProfileCards}
         />
-        <div>
+        <ProfilesContainer>
           {filteredCards}
-        </div>
+        </ProfilesContainer>
         
       </div>
       <ul>
@@ -109,8 +124,10 @@ function HomePage() {
           <Link to="/profile-page">Profile Page</Link>
         </li>
       </ul>
+      </>
+  );  
       
-    {*/<div style={{display: "flex"}}>
+{/* <div style={{display: "flex"}}>
       <Filters 
         users={[]}
         filteredUsers={[]}
@@ -200,9 +217,8 @@ function HomePage() {
       <li>
         <Link to="/profile-page">Profile Page</Link>
       </li>
-    </ul>*/}
-    </>
-  );
+    </ul> */}
+    
 }
 
 export default HomePage;
