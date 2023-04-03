@@ -15,7 +15,7 @@ const FilterContainer = styled.div`
     padding: 0 24px;
 `;
 
-export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts}) {
+export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts, setFilteredCards, filteredCards, setFilteredUsers, allCards}) {
     //TODO change to multiselect dropdown componenet
     const [appliedSkills, setAppliedSkills] = useState([]);
     const [appliedInterests, setAppliedInterests] = useState([]);
@@ -45,11 +45,58 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         )
     }
 
+    function onSelectSkill(selectedList) {
+        // setAppliedSkills(selectedList);
+        // const filtered = [];
+        // for (let i = 0; i < filteredUsers.length; i++) {
+        //     const user = filteredUsers[i];
+        //     for (let j = 0; j < appliedSkills.length; i++) {
+        //         if (appliedSkills[i].name === user.skills[i].name) {
+        //             console.log(user.name);
+        //             filtered.push(user);
+        //         }
+        //     }
+        // }
+        // setFilteredUsers(filtered);
+        // const cards = []
+        // for (let i = 0; i < filteredUsers.length; i++) {
+        //     const user = filteredUsers[i];
+        //     cards.push(
+        //         <ProfileCard 
+        //             name={user.name}
+        //             title={user.title}
+        //             profilePic={user.profilePic}
+        //             skills={user.skills}
+        //             interests={user.interests}
+        //             achievements={user.achievements}
+        //         />
+        //     )
+        // }
+        // setFilteredCards(cards);
+        // console.log(filteredUsers.length);
+        // console.log(filteredCards);
+
+        setFilteredUsers(filteredUsers[0]);
+        setFilteredCards(filteredCards[0]);
+    }
+
+    function onSelectInterest(selectedList) {
+        setAppliedInterests(selectedList)
+    }
+    function onSelectDept(selectedList) {
+        setAppliedDept(selectedList)
+    }
+
+    function onRemoveSkill() {
+        setFilteredUsers(users);
+        setFilteredCards(allCards)
+    }
+
     return (
         <FilterContainer>
             <h3>Filters</h3>
             <p className="bold">Skills</p>
-            <FilterSelect options={allSkills} placeholder="Select skills" />
+            <FilterSelect options={allSkills} placeholder="Select skills" onSelect={onSelectSkill} onRemove={onRemoveSkill} />
             <p className="bold">Interests</p>
             <FilterSelect options={allInterests} placeholder="Select interests" />
             <p className="bold">Department</p>
