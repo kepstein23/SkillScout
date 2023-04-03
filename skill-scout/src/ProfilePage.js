@@ -127,7 +127,7 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements} 
                     </InterestTags>
                 </div>
                 <div>
-                    <p className='bold'>Achievements</p>
+                    <p className='bold'>Badges</p>
                     <div class="trophies">
                         {achievementElements}
                     </div>
