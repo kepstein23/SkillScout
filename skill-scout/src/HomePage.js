@@ -128,6 +128,7 @@ function HomePage() {
   );  
       
 {/* <div style={{display: "flex"}}>
+    <div style={{display: "flex"}}>
       <Filters 
         users={[]}
         filteredUsers={[]}
@@ -218,7 +219,6 @@ function HomePage() {
         <Link to="/profile-page">Profile Page</Link>
       </li>
     </ul> */}
-    
 }
 
 export default HomePage;
