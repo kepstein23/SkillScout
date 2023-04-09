@@ -3,7 +3,7 @@ import { User, PaperPlaneTilt } from "@phosphor-icons/react"
 import Button from './components/Button.js'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import SearchBar from './components/SearchBar';
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -26,27 +26,27 @@ const Logo = styled.h1`
     // padding: 0;
 `;
 
-const SearchBar = styled.input`
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  width: 400px;
-  background-color: #eee;
-`;
+// const SearchBar = styled.input`
+//   padding: 10px;
+//   border: none;
+//   border-radius: 5px;
+//   width: 400px;
+//   background-color: #eee;
+// `;
 
 const LeftButtons = styled.div`
     display: flex;
     gap: 10px;
 `;
 
-export default function Header() {
+export default function Header({onSearch}) {
 
     return (
         <HeaderContainer>
             <Link to="/" style={{ textDecoration: 'none' }}>
                 <Logo style={{ color: 'white'}}>SkillScout</Logo>
             </Link>
-            <SearchBar placeholder="Search..." />
+            <SearchBar onSearch={onSearch}/>
             <LeftButtons>
                 <Link to="/profile-page">
                     <Button type="secondary" icon={User} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Filters from './Filters';
@@ -92,9 +92,35 @@ function HomePage() {
   //const [allInterests, setAllInterests] = useState(['Frontend', 'React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma', 'Design', 'Testing', 'Backend']);
   //const [allDepts, setAllDepts] = useState(['Frontend', 'Design', 'Backend', 'Testing']);
 
+
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = (value) => {
+    setSearchValue(value);
+  };
+
+  useEffect(() => {
+    console.log('The count variable has changed:', searchValue);
+    if (searchValue.length >= 3) {
+      const searchedUsers = userProfileCards.filter(item => 
+        // console.log('UserProfileCardsItem:', item)
+        item.props.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        item.props.interests.some(interest => 
+          interest.toLowerCase().includes(searchValue.toLowerCase())
+          ) ||
+        item.props.skills.some(skill => 
+          skill.name.toLowerCase().includes(searchValue.toLowerCase())
+          )
+        );
+      setFilteredCards(searchedUsers)
+    } else {
+      setFilteredCards(userProfileCards)
+    }
+  }, [searchValue]);
+
   return (
     <>
-    <Header />
+    <Header onSearch={handleSearch}/>
       <div style={{display: "flex"}}>
         <Filters 
           users={users}
