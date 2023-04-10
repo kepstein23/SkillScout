@@ -15,7 +15,7 @@ const FilterContainer = styled.div`
     padding: 0 24px;
 `;
 
-export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts, setFilteredCards, filteredCards, setFilteredUsers, allCards}) {
+export default function Filters({users, filteredUsers, allSkills, allInterests, allDepts, setFilteredCards, filteredCards, setFilteredUsers, allCards, handleSearch}) {
     //TODO change to multiselect dropdown componenet
     const [appliedSkills, setAppliedSkills] = useState([]);
     const [appliedInterests, setAppliedInterests] = useState([]);

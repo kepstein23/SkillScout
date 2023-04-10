@@ -6,6 +6,7 @@ import Filters from './Filters';
 import ProfileCard from './ProfileCard';
 import styled from 'styled-components';
 import profilePictures from './img/profilePictures';
+import { MainSearch } from './components/MainSearch';
 
 const ProfilesContainer = styled.div`
   display: flex;
@@ -92,16 +93,22 @@ function HomePage() {
   //const [allInterests, setAllInterests] = useState(['Frontend', 'React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma', 'Design', 'Testing', 'Backend']);
   //const [allDepts, setAllDepts] = useState(['Frontend', 'Design', 'Backend', 'Testing']);
 
-
+  const [hasSearched, setHasSearched] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
+  const handleMainSearch = () => {
+    setHasSearched(true);
+    setSearchValue(document.getElementById("main-search").value);
+  }
+
   const handleSearch = (value) => {
-    setSearchValue(value);
+      setSearchValue(value);
   };
 
   useEffect(() => {
     console.log('The count variable has changed:', searchValue);
     if (searchValue.length >= 3) {
+      
       const searchedUsers = userProfileCards.filter(item => 
         // console.log('UserProfileCardsItem:', item)
         item.props.name.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -113,43 +120,57 @@ function HomePage() {
           )
         );
       setFilteredCards(searchedUsers)
+      setHasSearched(true);
     } else {
       setFilteredCards(userProfileCards)
     }
   }, [searchValue]);
 
+  const onReset = () => {
+    setHasSearched(false);
+    setSearchValue("");
+  }
+
   return (
     <>
-    <Header onSearch={handleSearch}/>
-      <div style={{display: "flex"}}>
-        <Filters 
-          users={users}
-          filteredUsers={filteredUsers}
-          setFilteredUsers={setFilteredUsers}
-          allSkills={allSkills}
-          allInterests={allInterests}
-          allDepts={allDepts}
-          setAppliedDept={setAppliedDept}
-          setAppliedInterests={setAppliedInterests}
-          setAppliedSkills={setAppliedSkills}
-          appliedSkills={appliedSkills}
-          filteredCards={filteredCards}
-          setFilteredCards={setFilteredCards}
-          allCards={userProfileCards}
-        />
-        <ProfilesContainer>
-          {filteredCards}
-        </ProfilesContainer>
-        
-      </div>
-      <ul>
+    <Header onClick={onReset} onSearch={handleSearch}/>
+      {hasSearched && 
+        <div style={{display: "flex"}}>
+          <Filters 
+            users={users}
+            filteredUsers={filteredUsers}
+            setFilteredUsers={setFilteredUsers}
+            allSkills={allSkills}
+            allInterests={allInterests}
+            allDepts={allDepts}
+            setAppliedDept={setAppliedDept}
+            setAppliedInterests={setAppliedInterests}
+            setAppliedSkills={setAppliedSkills}
+            appliedSkills={appliedSkills}
+            filteredCards={filteredCards}
+            setFilteredCards={setFilteredCards}
+            allCards={userProfileCards}
+            handleSearch={handleSearch}
+          />
+          <ProfilesContainer>
+            {filteredCards}
+          </ProfilesContainer>
+          
+        </div>
+      }
+      {!hasSearched && 
+        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+          <MainSearch handleSearch={handleMainSearch}/>
+        </div>
+      }
+      {/* <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/profile-page">Profile Page</Link>
         </li>
-      </ul>
+      </ul> */}
       </>
   );  
       
