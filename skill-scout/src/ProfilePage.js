@@ -106,7 +106,7 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements} 
 
     return(
         <div className="Profile">
-            <Header />
+            <Header showHeaderSearchBar={true}/>
             <ProfileInfo>
 
             </ProfileInfo>

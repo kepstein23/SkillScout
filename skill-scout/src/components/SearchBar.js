@@ -9,7 +9,7 @@ const StyledInput = styled.input`
   background-color: #eee;
 `;
 
-const SearchBar = ({onSearch}) => {
+const SearchBar = ({onSearch, id, style}) => {
   const inputRef = useRef(null);
   
   const handleSearch = () => {
@@ -17,7 +17,7 @@ const SearchBar = ({onSearch}) => {
   };
 
   return (
-    <StyledInput type="text" ref={inputRef} onChange={handleSearch} placeholder="Search..."/>
+    <StyledInput id={id || ''} style={style}type="text" ref={inputRef} onChange={handleSearch} placeholder="Search..."/>
   );
 };
 
