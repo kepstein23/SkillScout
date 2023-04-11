@@ -133,10 +133,9 @@ function HomePage() {
 
   return (
     <>
-    <Header onClick={onReset} onSearch={handleSearch}/>
       {hasSearched && 
-        <div style={{display: "flex"}}>
-          <Filters 
+        <><Header onClick={onReset} onSearch={handleSearch} showHeaderSearchBar={true} /><div style={{ display: "flex" }}>
+          <Filters
             users={users}
             filteredUsers={filteredUsers}
             setFilteredUsers={setFilteredUsers}
@@ -150,27 +149,20 @@ function HomePage() {
             filteredCards={filteredCards}
             setFilteredCards={setFilteredCards}
             allCards={userProfileCards}
-            handleSearch={handleSearch}
-          />
+            handleSearch={handleSearch} />
           <ProfilesContainer>
             {filteredCards}
           </ProfilesContainer>
-          
-        </div>
+
+        </div></>
       }
       {!hasSearched && 
-        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-          <MainSearch handleSearch={handleMainSearch}/>
+        <><Header onClick={onReset} onSearch={handleSearch} showHeaderSearchBar={false} />
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <MainSearch handleSearch={handleMainSearch} />
         </div>
+        </>
       }
-      {/* <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/profile-page">Profile Page</Link>
-        </li>
-      </ul> */}
       </>
   );  
       

@@ -39,7 +39,7 @@ const LeftButtons = styled.div`
     gap: 10px;
 `;
 
-export default function Header({onClick, onSearch}) {
+export default function Header({onClick, onSearch, showHeaderSearchBar}) {
     const handleReset = () => {
         document.getElementById("header-search").value = ''; 
         onClick()
@@ -51,7 +51,7 @@ export default function Header({onClick, onSearch}) {
                     <Logo style={{ color: 'white'}}>SkillScout</Logo>
                 </Link>
             </div>
-            <SearchBar onSearch={onSearch} id={"header-search"}/>
+            {showHeaderSearchBar && <SearchBar onSearch={onSearch} id={"header-search"}/>}
             <LeftButtons>
                 <Link to="/profile-page">
                     <Button type="secondary" icon={User} />

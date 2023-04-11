@@ -45,51 +45,65 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         )
     }
 
-    function onSelectSkill(selectedList) {
-        // setAppliedSkills(selectedList);
-        // const filtered = [];
-        // for (let i = 0; i < filteredUsers.length; i++) {
-        //     const user = filteredUsers[i];
-        //     for (let j = 0; j < appliedSkills.length; i++) {
-        //         if (appliedSkills[i].name === user.skills[i].name) {
-        //             console.log(user.name);
-        //             filtered.push(user);
-        //         }
-        //     }
-        // }
-        // setFilteredUsers(filtered);
-        // const cards = []
-        // for (let i = 0; i < filteredUsers.length; i++) {
-        //     const user = filteredUsers[i];
-        //     cards.push(
-        //         <ProfileCard 
-        //             name={user.name}
-        //             title={user.title}
-        //             profilePic={user.profilePic}
-        //             skills={user.skills}
-        //             interests={user.interests}
-        //             achievements={user.achievements}
-        //         />
-        //     )
-        // }
-        // setFilteredCards(cards);
-        // console.log(filteredUsers.length);
-        // console.log(filteredCards);
 
-        setFilteredUsers(filteredUsers[0]);
-        setFilteredCards(filteredCards[0]);
+    function isSuperset(set, subset) {
+        return subset.every(function (value) {
+          return set.includes(value);
+        });
+      }
+
+      
+    function isCoveredByName(objects, array) {
+        const names = objects.map((object) => {
+          return object.name;
+        });
+        return array.every((value) => {
+          return names.includes(value);
+        });
+    }
+
+    function filterBySkills(selectedSkills) {
+        const newFilteredCards = filteredCards.size > 0 ? filteredCards.filter(item => {
+            return isCoveredByName(item.props.skills, selectedSkills)
+        }
+        ) : allCards.filter(item => {
+            return isCoveredByName(item.props.skills, selectedSkills)
+        }
+        ) 
+        setFilteredCards(newFilteredCards)
+    }
+
+    function filterByInterests(selectedInterests) {
+        const newFilteredCards = filteredCards.size > 0 ? filteredCards.filter(item => {
+            return isSuperset(item.props.interests, selectedInterests)
+        }
+        ) : allCards.filter(item => {
+            return isSuperset(item.props.interests, selectedInterests)
+        }
+        )
+        setFilteredCards(newFilteredCards)
+    }
+
+
+    function onSelectSkill(selectedList) {
+        console.log(filteredCards[0])
+        filterBySkills(selectedList)
     }
 
     function onSelectInterest(selectedList) {
-        setAppliedInterests(selectedList)
+        filterByInterests(selectedList)
     }
+
+    function onRemoveInterest(selectedList) {
+        filterByInterests(selectedList)
+    }
+
     function onSelectDept(selectedList) {
         setAppliedDept(selectedList)
     }
 
-    function onRemoveSkill() {
-        setFilteredUsers(users);
-        setFilteredCards(allCards)
+    function onRemoveSkill(selectedList) {
+        filterBySkills(selectedList)
     }
 
     return (
@@ -98,7 +112,7 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
             <p className="bold">Skills</p>
             <FilterSelect options={allSkills} placeholder="Select skills" onSelect={onSelectSkill} onRemove={onRemoveSkill} />
             <p className="bold">Interests</p>
-            <FilterSelect options={allInterests} placeholder="Select interests" />
+            <FilterSelect options={allInterests} placeholder="Select interests" onSelect={onSelectInterest} onRemove={onRemoveInterest} />
             <p className="bold">Department</p>
             <FilterSelect options={allDepts} placeholder="Select department" />
 
