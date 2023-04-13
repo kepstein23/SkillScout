@@ -7,6 +7,7 @@ import ProfileCard from './ProfileCard';
 import styled from 'styled-components';
 import profilePictures from './img/profilePictures';
 import { MainSearch } from './components/MainSearch';
+import LoginPage from './LoginPage';
 
 const ProfilesContainer = styled.div`
   display: flex;
@@ -131,9 +132,15 @@ function HomePage() {
     setSearchValue("");
   }
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const handleLogin = () => {
+    setIsLoggedIn(true)
+  }
+  
   return (
     <>
-      {hasSearched && 
+    {!isLoggedIn && <LoginPage handleLogin={handleLogin}/>}
+      {hasSearched && isLoggedIn &&
         <><Header onClick={onReset} onSearch={handleSearch} showHeaderSearchBar={true} /><div style={{ display: "flex" }}>
           <Filters
             users={users}
@@ -156,7 +163,7 @@ function HomePage() {
 
         </div></>
       }
-      {!hasSearched && 
+      {!hasSearched && isLoggedIn &&
         <><Header onClick={onReset} onSearch={handleSearch} showHeaderSearchBar={false} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <MainSearch handleSearch={handleMainSearch} />

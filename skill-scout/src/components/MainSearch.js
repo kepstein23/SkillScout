@@ -29,3 +29,4 @@ export function MainSearch({handleSearch}) {
         </div>
     )
 }
+

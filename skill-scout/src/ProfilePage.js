@@ -7,6 +7,7 @@ import Tab from './Tab.js'
 import {Trophy} from "@phosphor-icons/react"
 import styled from 'styled-components';
 import SkillBar from './components/SkillBar';
+import { useLocation } from 'react-router-dom';
 
 const BioProfile = styled.div`
     display: flex;
@@ -68,7 +69,11 @@ const InterestTags = styled.div`
     height: 28px;
 `;
 
+
+
 function ProfilePage({name, title, profilePic, skills, interests, achievements} ) {
+
+
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
         const skill = skills[i];

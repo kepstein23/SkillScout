@@ -22,6 +22,7 @@ function App() {
                     skills={[{name: "Java", progress:"30%"}, {name: "CSS", progress: "70%"}, {name: "React", progress: "40%"}]}
                     interests={["CSS", "Frontend", "Design", "Testing", "Java", "React"]}
                     achievements={["achievement", "achievement", "achievement"]} />} />
+          {/* <Route path="/profile-page" element={<ProfilePage />} /> */}
         </Routes>
       </div>
     </Router>
