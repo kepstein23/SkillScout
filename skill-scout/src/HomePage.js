@@ -88,6 +88,7 @@ function HomePage() {
     )
   }
 
+
   const [filteredCards, setFilteredCards] = useState(userProfileCards);
 
   //const [allSkills, setAllSkills] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);
