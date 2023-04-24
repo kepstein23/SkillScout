@@ -1,8 +1,8 @@
 import React from 'react'
-import profilePic from './img/zohaib.png'
+// import profilePic from './img/zohaib.png'
 
 //TODO: use props
-export const ProfileInfo = () => {
+export const ProfileInfo = ({name, title, profilePic}) => {
   return (
     <div class='profile-info'>
         <div class='pinfo-picture'>
@@ -19,10 +19,10 @@ export const ProfileInfo = () => {
         </div>
         <div class='pinfo-name-title-block'>
             <div class='pinfo-name-text'>
-                Zohaib Corrigan-Scantling
+                {name}
             </div>
             <div class='pinfo-title-text'>
-                Frontend Engineer
+                {title}
             </div>
         </div>
     </div>

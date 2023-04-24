@@ -95,7 +95,6 @@ const InterestTags = styled.div`
 
 
 function ProfileCard( {name, title, profilePic, skills, interests, achievements} ) {
-
     
     //[{name: "", progress: "10%"}]
     let skillsElements = [];
@@ -133,15 +132,27 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
         )
     }
 
+    const testdata = {
+        title: 'My Title',
+        description: 'My Description'
+      };
+
     return (
         <ProfileCardContainer>
             <TopProfile>
                     <PicNameTitle>
                         <img class="profile-pic" src={profilePic} alt="profile"/>
-                        <Link to={{
-                            pathname: '/profile-page',
-                            state: {data: "Ali"}
-                        }} class="profile-card-top-clickable">
+                        <Link to={"/profile-page"} 
+                        state = 
+                        {{name: name,
+                        title: title,
+                        profilePic: profilePic,
+                        skills: skills,
+                        interests: interests,
+                        achievements: achievements
+
+                        }}
+                         class="profile-card-top-clickable">
                             <NameTitle>
                                 <h2 style={{margin: 0}}>{name}</h2>
                                 <p style={{ margin: 0 }}>{title}</p>
