@@ -311,6 +311,11 @@ flex-grow: 0;
   font-family: var(--font-family) !important;
 }
 
+.react-select-container {
+  max-height: 500px; /* set a maximum height for the component */
+  overflow-y: auto; /* enable vertical scrolling */
+}
+
 
 @keyframes App-logo-spin {
   from {
