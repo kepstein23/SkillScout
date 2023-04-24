@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import FilterSelect from "./components/FilterSelect";
+import Slider from "./components/Slider";
 // import Multiselect from 'multiselect-react-dropdown';
+import Select from 'react-select'
 
 
 const FilterContainer = styled.div`
@@ -20,6 +22,19 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     const [appliedSkills, setAppliedSkills] = useState([]);
     const [appliedInterests, setAppliedInterests] = useState([]);
     const [appliedDept, setAppliedDept] = useState([]);
+
+    // const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    const [startDate, setStartDate] = useState("");
+    const [endDate, setEndDate] = useState("");
+
+    const allDays = [
+        { value: 1, label: 'Monday' },
+        { value: 2, label: 'Tuesday' },
+        { value: 3, label: 'Wednesday' },
+        { value: 4, label: 'Thursday' },
+        { value: 5, label: 'Friday' },
+      ];
+
 
     let skillOptions = []
     for (let i = 0; i < allSkills.length; i++) {
@@ -106,6 +121,13 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         filterBySkills(selectedList)
     }
 
+    const handleStartDate = (option) => {
+        setStartDate(option.value)
+    }
+    const handleEndDate = (option) => { 
+        setEndDate(option.label)
+    }
+
     return (
         <FilterContainer>
             <h3>Filters</h3>
@@ -115,7 +137,10 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
             <FilterSelect options={allInterests} placeholder="Select interests" onSelect={onSelectInterest} onRemove={onRemoveInterest} />
             <p className="bold">Department</p>
             <FilterSelect options={allDepts} placeholder="Select department" />
-
+            <p className="bold">From</p>
+            <Select options={allDays} placeholder="Select day" onSelect={handleStartDate} />
+            <p className="bold">To</p>
+            <Select menuPosition="fixed" options={allDays} placeholder="Select day" onSelect={handleEndDate} />
         </FilterContainer>
     )
 
