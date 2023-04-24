@@ -15,14 +15,14 @@ function App() {
       <div>
         <Routes>
           <Route exact path="/" element={<HomePage />}  />
-          <Route path="/profile-page" element={<ProfilePage 
+          {/* <Route path="/profile-page" element={<ProfilePage 
                     name="Zohaib Corrigan-Scantling"
                     title="Frontend Engineer"
                     profilePic={profilePic}
                     skills={[{name: "Java", progress:"30%"}, {name: "CSS", progress: "70%"}, {name: "React", progress: "40%"}]}
                     interests={["CSS", "Frontend", "Design", "Testing", "Java", "React"]}
-                    achievements={["achievement", "achievement", "achievement"]} />} />
-          {/* <Route path="/profile-page" element={<ProfilePage />} /> */}
+                    achievements={["achievement", "achievement", "achievement"]} />} /> */}
+          <Route path="/profile-page" element={<ProfilePage />} />
         </Routes>
       </div>
     </Router>

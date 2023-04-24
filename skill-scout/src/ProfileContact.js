@@ -5,8 +5,10 @@ import ButtonPopover from './components/ButtonPopover'
 import { ToastContainer } from 'react-toastify';
 
 //TODO: use props
-export const ProfileContact = () => {
-  return (
+export const ProfileContact = ({name}) => {
+
+    const nameFormatted = name.trim().toLowerCase().replace(/\s/g, '').substring(0, 5);
+    return (
     <div className='profile-contact'>
         <div className='pcontact-container'>
             <div className='pcontact-item-container'> 
@@ -14,7 +16,7 @@ export const ProfileContact = () => {
                     Email
                 </div>
                 <div className='pcontact-item-body'>
-                    zohaib@organization.org
+                    {nameFormatted}@organization.org
                 </div>
             </div>
             <div className='pcontact-item-container'> 
@@ -22,7 +24,7 @@ export const ProfileContact = () => {
                     Slack
                 </div>
                 <div className='pcontact-item-body'>
-                    @zohaibcs
+                    @{nameFormatted}
                 </div>
             </div>
             <ButtonPopover  icon={Plus} text="New request" />

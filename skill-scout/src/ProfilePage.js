@@ -71,8 +71,18 @@ const InterestTags = styled.div`
 
 
 
-function ProfilePage({name, title, profilePic, skills, interests, achievements} ) {
+function ProfilePage() {
 
+    const location = useLocation()
+    const { name, title, profilePic, skills, interests, achievements  } = location.state
+
+    const bioFront = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
+    
+    const bioData = "Data Analyst with expertise in data analysis, statistics, and visualization. Passionate about exploring data to uncover insights and drive decision-making. Experienced in using tools such as Excel, Tableau, and Python for data analysis. Interested in machine learning, data mining, and predictive modeling."
+    
+    const bioML = "Machine Learning Engineer with expertise in developing and implementing machine learning models using Python and TensorFlow. Passionate about exploring data to create predictive models and solve complex problems. Experienced in data pre-processing, feature engineering, and model optimization. Interested in deep learning, natural language processing, and computer vision."
+    const bio = title == "Frontend Engineer" ? bioFront : title == "Data Analyst" ? bioData : bioML
+    // console.log(data)
 
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
@@ -112,11 +122,11 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements} 
     return(
         <div className="Profile">
             <Header showHeaderSearchBar={true}/>
-            <ProfileInfo>
+            <ProfileInfo name={name} title={title} profilePic={profilePic}>
 
             </ProfileInfo>
 
-            <ProfileContact>
+            <ProfileContact name={name}>
                 
             </ProfileContact>
 
@@ -148,9 +158,7 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements} 
             <BioProfile>
                 <BioText>
                 <p className='bold'>Bio</p>
-                <p> Frontend Engineer with expertise in React, CSS, and HTML.
-                     Passionate about creating beautiful and engaging user interfaces.
-                      Interested in data analytics, algorithms, and animation. </p>
+                <p> {bio} </p>
                 </BioText>
             </BioProfile>
         </div>
