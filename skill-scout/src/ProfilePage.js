@@ -74,7 +74,10 @@ const InterestTags = styled.div`
 function ProfilePage() {
 
     const location = useLocation()
-    const { name, title, profilePic, skills, interests, achievements  } = location.state
+    // if (!location || !location.state) {
+    //     return <div>Loading...</div>;
+    //   }
+    const { name, title, profilePic, skills, interests, achievements, availability } = location.state
 
     const bioFront = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
     
@@ -82,7 +85,8 @@ function ProfilePage() {
     
     const bioML = "Machine Learning Engineer with expertise in developing and implementing machine learning models using Python and TensorFlow. Passionate about exploring data to create predictive models and solve complex problems. Experienced in data pre-processing, feature engineering, and model optimization. Interested in deep learning, natural language processing, and computer vision."
     const bio = title == "Frontend Engineer" ? bioFront : title == "Data Analyst" ? bioData : bioML
-    // console.log(data)
+
+    console.log("profile av: " + availability)
 
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
@@ -121,8 +125,8 @@ function ProfilePage() {
 
     return(
         <div className="Profile">
-            <Header showHeaderSearchBar={true}/>
-            <ProfileInfo name={name} title={title} profilePic={profilePic}>
+            <Header onClick={{}} showHeaderSearchBar={true}/>
+            <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability}>
 
             </ProfileInfo>
 

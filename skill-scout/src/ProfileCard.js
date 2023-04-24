@@ -7,6 +7,7 @@ import SkillBar from './components/SkillBar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const ProfileCardContainer = styled.div`
     display: flex;
@@ -94,8 +95,28 @@ const InterestTags = styled.div`
 `;
 
 
-function ProfileCard( {name, title, profilePic, skills, interests, achievements} ) {
+function ProfileCard( {name, title, profilePic, skills, interests, achievements, availability} ) {
     
+
+    // const availabilityHTML = formatAvailabilityIntoHTML(availability);
+
+    // const [availabilityHTML, setavailabilityHTML] = useState(formatAvailabilityIntoHTML(availability));
+
+    let availabilityString = "";
+    let availabilityArray = [];
+    for (let i = 0; i < availability.length; i++) {
+        const day = availability[i];
+        availabilityString += day.day + " " + day.start + "-" + day.end + " " + day.period + " ET";
+        availabilityArray.push(availabilityString)
+    }
+
+    const availabilityHTML = availability.map(day => (
+        <li key={day.day}>
+            {day.day} {day.start}-{day.end} {day.period} ET
+        </li>
+    ));
+
+
     //[{name: "", progress: "10%"}]
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
@@ -132,10 +153,23 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
         )
     }
 
-    const testdata = {
-        title: 'My Title',
-        description: 'My Description'
-      };
+    // function formatAvailabilityIntoHTML(availability) {
+    //     let availabilityString = "";
+    //     let availabilityArray = [];
+    //     for (let i = 0; i < availability.length; i++) {
+    //         const day = availability[i];
+    //         availabilityString += day.day + " " + day.start + "-" + day.end + " " + day.period + " ET";
+    //         availabilityArray.push(availabilityString)
+    //     }
+    //     // const availabilityHTML = availabilityArray.map(text => `<p> ${text} </p>`).join("");
+
+    //     return availability.map(day => (
+    //         <li key={day.day}>
+    //             {day.day} {day.start}-{day.end} {day.period} ET
+    //         </li>
+    //     ));
+    // }
+
 
     return (
         <ProfileCardContainer>
@@ -149,8 +183,8 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                         profilePic: profilePic,
                         skills: skills,
                         interests: interests,
-                        achievements: achievements
-
+                        achievements: achievements,
+                        availability: availabilityArray
                         }}
                          class="profile-card-top-clickable">
                             <NameTitle>
@@ -184,10 +218,11 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements}
                         <div>
             <p className='bold'>Availability</p>
             <ul>
-                <li>Mon 12-3pm ET</li>
+                {/* <li>Mon 12-3pm ET</li>
                 <li>Tue 2:30-4pm ET</li>
                 <li>Wen 12-3pm ET</li>
-                <li>Fri 1-2pm ET</li>
+                <li>Fri 1-2pm ET</li> */}
+                {availabilityHTML}
             </ul>
         </div>
             </BottomProfile>

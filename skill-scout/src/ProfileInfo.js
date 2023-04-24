@@ -2,7 +2,16 @@ import React from 'react'
 // import profilePic from './img/zohaib.png'
 
 //TODO: use props
-export const ProfileInfo = ({name, title, profilePic}) => {
+export const ProfileInfo = ({name, title, profilePic, availability}) => {
+
+
+    const availabilityArray = availability[availability.length - 1].split("ET");
+    let availabilityHTML = availabilityArray.map((string, index) => (
+        <li key={index}>
+            {string}
+        </li>
+    ));
+    availabilityHTML.pop()
   return (
     <div class='profile-info'>
         <div class='pinfo-picture'>
@@ -11,10 +20,7 @@ export const ProfileInfo = ({name, title, profilePic}) => {
         <div class='pinfo-availability'>
             <p class='pinfo-av-title'>Availability</p>
             <ul>
-                <li>Mon 12-3pm ET</li>
-                <li>Tue 2:30-4pm ET</li>
-                <li>Wen 12-3pm ET</li>
-                <li>Fri 1-2pm ET</li>
+                {availabilityHTML}
             </ul>
         </div>
         <div class='pinfo-name-title-block'>
