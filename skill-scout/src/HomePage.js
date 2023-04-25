@@ -30,8 +30,8 @@ function HomePage() {
       achievements: ["achievement", "achievement", "achievement"],
       availability: [
         {day: "Monday", start: "1:00", end: "2:00", period: "PM"},
-        {day: "Thursday", start: "4:30", end: "5:30", period: "PM"},
-        {day: "Friday", start: "12:30", end: "2:00", period: "PM"}
+        {day: "Tuesday", start: "4:30", end: "5:30", period: "PM"},
+        {day: "Wednesday", start: "12:30", end: "2:00", period: "PM"}
       ]
     },
     {
@@ -65,8 +65,8 @@ function HomePage() {
       achievements: ["Best Research Paper Award", "Research Grant Recipient", "Innovative Research Award"],
       availability: 
       [
-        {day: "Tuesday", start: "4:30", end: "6:00", period: "PM"},
-        {day: "Wednesday", start: "5:00", end: "7:30", period: "PM"}
+        {day: "Thursday", start: "4:30", end: "6:00", period: "PM"},
+        {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
       ]
 
     }
