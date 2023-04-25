@@ -5,13 +5,17 @@ import React from 'react'
 export const ProfileInfo = ({name, title, profilePic, availability}) => {
 
 
-    const availabilityArray = availability[availability.length - 1].split("ET");
-    let availabilityHTML = availabilityArray.map((string, index) => (
-        <li key={index}>
-            {string}
-        </li>
-    ));
-    availabilityHTML.pop()
+    let availabilityHTML;
+    if (availability !== undefined) {
+        const availabilityArray = availability[availability.length - 1].split("ET");
+        let availabilityHTML = availabilityArray.map((string, index) => (
+            <li key={index}>
+                {string}
+            </li>
+        ));
+        availabilityHTML.pop()
+    }
+
   return (
     <div class='profile-info'>
         <div class='pinfo-picture'>
@@ -20,7 +24,8 @@ export const ProfileInfo = ({name, title, profilePic, availability}) => {
         <div class='pinfo-availability'>
             <p class='pinfo-av-title'>Availability</p>
             <ul>
-                {availabilityHTML}
+                {availability !== undefined && availabilityHTML}
+                {availability === undefined && <li>Monday 1:00 - 2:00 PM ET</li>}
             </ul>
         </div>
         <div class='pinfo-name-title-block'>
