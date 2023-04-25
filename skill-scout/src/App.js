@@ -3,7 +3,8 @@ import { useState } from 'react';
 import './App.css';
 import ProfilePage from './ProfilePage';
 import HomePage from './HomePage';
-import profilePic from './img/zohaib.png';
+import profilePic from './img/maya.png';
+import MyProfile from './MyProfile';
 
 function App() {
   const [allSkills, setAllSkills] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);
@@ -15,13 +16,13 @@ function App() {
       <div>
         <Routes>
           <Route exact path="/" element={<HomePage />}  />
-          {/* <Route path="/profile-page" element={<ProfilePage 
-                    name="Zohaib Corrigan-Scantling"
+          <Route path="/my-profile" element={<MyProfile 
+                    name="Alex Oxlade-Chamberlain"
                     title="Frontend Engineer"
                     profilePic={profilePic}
-                    skills={[{name: "Java", progress:"30%"}, {name: "CSS", progress: "70%"}, {name: "React", progress: "40%"}]}
-                    interests={["CSS", "Frontend", "Design", "Testing", "Java", "React"]}
-                    achievements={["achievement", "achievement", "achievement"]} />} /> */}
+                    skills={[{name: "Java", progress:"22%"}, {name: "CSS", progress: "82%"}, {name: "React", progress: "77%"}]}
+                    interests={["CSS", "Frontend", "Design", "Java", "React"]}
+                    achievements={["achievement", "achievement", "achievement"]} />} />
           <Route path="/profile-page" element={<ProfilePage />} />
         </Routes>
       </div>
