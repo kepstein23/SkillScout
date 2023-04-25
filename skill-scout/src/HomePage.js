@@ -20,6 +20,8 @@ const ProfilesContainer = styled.div`
 `;
 
 function HomePage() {
+  const [currentUser, setCurrentUser] = useState("")
+  const [notifications, setNotifications] = useState([])
   const users = [
     {
       name: "Zohaib Corrigan-Scantling",
@@ -136,6 +138,7 @@ function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const handleLogin = () => {
     setIsLoggedIn(true)
+    //TODO set username
   }
   
   return (
