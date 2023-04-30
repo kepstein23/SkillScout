@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import MyProfile from './MyProfile';
 import profilePictures from './img/profilePictures';
 import InboxPage from './InboxPage';
+import LoginPage from './LoginPage';
 
 function App() {
   // const [allSkills, setAllSkills] = useState(['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma']);
@@ -66,7 +67,8 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route exact path="/" element={<HomePage />}  />
+          <Route exact path="/" element={<LoginPage />}  />
+          <Route exact path="/search" element={<HomePage />}  />
           <Route path="/my-profile" element={<MyProfile 
                     name="Alex Oxlade-Chamberlain"
                     title="Frontend Engineer"

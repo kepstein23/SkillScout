@@ -151,17 +151,9 @@ function HomePage() {
     setHasSearched(false);
     setSearchValue("");
   }
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const handleLogin = () => {
-    setIsLoggedIn(true)
-    //TODO set username
-  }
   
   return (
     <>
-    {!isLoggedIn && <LoginPage handleLogin={handleLogin}/>}
-      {hasSearched && isLoggedIn &&
         <><Header onClick={onReset} onSearch={handleSearch} showHeaderSearchBar={true} /><div style={{ display: "flex" }}>
           <Filters
             users={users}
@@ -183,14 +175,13 @@ function HomePage() {
           </ProfilesContainer>
 
         </div></>
-      }
-      {!hasSearched && isLoggedIn &&
+      {/* {!hasSearched &&
         <><Header onClick={onReset} onSearch={handleSearch} showHeaderSearchBar={false} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <MainSearch handleSearch={handleMainSearch} />
         </div>
         </>
-      }
+      } */}
       </>
   );  
       

@@ -47,7 +47,7 @@ export default function Header({onClick, onSearch, showHeaderSearchBar}) {
     return (
         <HeaderContainer>
             {/* <div onClick={handleReset}> */}
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/search" style={{ textDecoration: 'none' }}>
                     <Logo style={{ color: 'white'}}>SkillScout</Logo>
                 </Link>
             {/* </div> */}

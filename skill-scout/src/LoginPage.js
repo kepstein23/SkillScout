@@ -2,10 +2,9 @@ import React from 'react';
 import LoginInput from './components/LoginInput';
 import Button from "./components/Button";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-
-
-function LoginPage({handleLogin}) {
+function LoginPage({}) {
 
     const Logo = styled.h1`
     font-size: 7rem;
@@ -33,7 +32,10 @@ function LoginPage({handleLogin}) {
                         style={{width: "80%", height: "30px", backgroundColor: "white"}} 
                         type={"password"}
                         placeholder={"Password"}/>
-                    <Button onClick={handleLogin} text={"Login"}/>
+                    <Link to="/search">
+                        <Button text={"Login"}/>
+                    </Link>
+                   
                 </div>
                 
             </div>
