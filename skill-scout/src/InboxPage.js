@@ -39,9 +39,9 @@ export default function InboxPage({requests}) {
     return(
         <div>
             <Header/>
-            <div style={{textAlign: "center"}}>
-                <h1>Inbox</h1>
-                <p>Manage all of your messages, requests, and notifications</p>
+            <div style={{textAlign: "center", margin: "2rem 0"}}>
+                <h1 style={{margin: 0}}>Inbox</h1>
+                <p style={{margin: 0}}>Manage all of your messages, requests, and notifications</p>
             </div>
             <NotificationCardContainer>
                 {notificationElements}

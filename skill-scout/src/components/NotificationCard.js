@@ -34,7 +34,8 @@ const TopProfile = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 96px;
+    gap: 48px;
+    width: 100%;
 `;
 
 const PicNameTitle = styled.div`
@@ -42,7 +43,10 @@ const PicNameTitle = styled.div`
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 24px;
+    gap: 18px;
+
+    width: 100%;
+    // height: 100px;
 `;
 
 const NameTitle = styled.div`
@@ -51,8 +55,14 @@ const NameTitle = styled.div`
     align-items: flex-start;
     padding: 0px;
     gap: 2px;
+
+    // max-width: 408px;
+    // height: 68px;
 `;
+
+
 const SkillsRequested = styled.div `
+    width: 100%;
 `;
 const Skills = styled.div`
     display: flex;
@@ -131,10 +141,10 @@ console.log(requester.title)
         {visible && <ProfileCardContainer>
             <TopProfile>
                 <PicNameTitle>
-                    <img src={requester.profilePic}></img>
+                    <img class="profile-pic" src={requester.profilePic}></img>
                     <NameTitle>
-                        <h2>{requester.name}</h2>
-                        <p>{requester.title}</p>
+                        <h2 style={{ margin: 0 }}>{requester.name}</h2>
+                        <p style={{ margin: 0 }} >{requester.title}</p>
                     </NameTitle>
                 </PicNameTitle>
                 <SkillsRequested>
