@@ -1,16 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components";
 import Tab from "../Tab";
 import Button from "./Button";
+import ReplyPopover from "./ReplyPopover";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ProfileCardContainer = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 padding: 24px;
 gap: 32px;
-
-width: 801px;
-height: 320px;
 
 /* Default/White */
 
@@ -34,17 +35,6 @@ const TopProfile = styled.div`
     align-items: center;
     padding: 0px;
     gap: 96px;
-
-    width: 753px;
-    height: 80px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
 `;
 
 const PicNameTitle = styled.div`
@@ -53,16 +43,6 @@ const PicNameTitle = styled.div`
     align-items: center;
     padding: 0px;
     gap: 24px;
-
-    width: 267px;
-    height: 80px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 `;
 
 const NameTitle = styled.div`
@@ -71,38 +51,16 @@ const NameTitle = styled.div`
     align-items: flex-start;
     padding: 0px;
     gap: 2px;
-
-    width: 163px;
-    height: 60px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 `;
 const SkillsRequested = styled.div `
-    width: 319px;
-    height: 58px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-`
+`;
 const Skills = styled.div`
-    width: 319px;
-    height: 58px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+    flex-wrap: wrap;
 `;
 
 const BottomProfile = styled.div`
@@ -111,17 +69,6 @@ const BottomProfile = styled.div`
     align-items: center;
     padding: 0px;
     gap: 63px;
-
-    width: 753px;
-    height: 160px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
 `;
 
 const Request = styled.div`
@@ -130,16 +77,6 @@ const Request = styled.div`
     align-items: flex-start;
     padding: 0px;
     gap: 4px;
-
-    width: 507px;
-    height: 160px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 1;
 `;
 
 const Buttons = styled.div`
@@ -148,20 +85,17 @@ const Buttons = styled.div`
     align-items: flex-start;
     padding: 0px;
     gap: 16px;
-
-    width: 183px;
-    height: 49px;
-
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 `;
 
-export default function NotificationCard({requester, message, skills}) {
+export default function NotificationCard({request}) {
 //requester -> {profilepic: "", name: }
+const requester = request.requester
+const message = request.message
+const skills = request.skills
+const [visible, setVisible] = useState(true);
+const [popoverVisible, setPopoverVisible] = useState(false);
+
+console.log(requester.title)
     let skillElements = []
     for (let i = 0; i < skills.length; i++) {
         const skill = skills[i];
@@ -174,8 +108,27 @@ export default function NotificationCard({requester, message, skills}) {
         )
     }
 
+    function handleConfirm() {
+        setVisible(false);
+        toast.success(`${requester.name} will be notified that you accept their request`, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+        });
+    }
+
+    function handleReply() {
+        toast.success(`Email has been sent to ${requester.name}.`, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+        });
+        setPopoverVisible(false);
+    }
+
+    function handleClose() {
+        setPopoverVisible(false);
+    }
+
     return(
-        <ProfileCardContainer>
+    <div>
+        {visible && <ProfileCardContainer>
             <TopProfile>
                 <PicNameTitle>
                     <img src={requester.profilePic}></img>
@@ -183,13 +136,13 @@ export default function NotificationCard({requester, message, skills}) {
                         <h2>{requester.name}</h2>
                         <p>{requester.title}</p>
                     </NameTitle>
-                    <SkillsRequested>
-                        <Skills>
-                            <h3>Skills requested from you:</h3>
-                            {skillElements}
-                        </Skills>
-                    </SkillsRequested>
                 </PicNameTitle>
+                <SkillsRequested>
+                    <h3>Skills requested from you:</h3>
+                    <Skills> 
+                        {skillElements}
+                    </Skills>
+                </SkillsRequested>
             </TopProfile>
             <BottomProfile>
                 <Request>
@@ -197,10 +150,13 @@ export default function NotificationCard({requester, message, skills}) {
                     <p>{message}</p>
                 </Request>
                 <Buttons>
-                    <Button text="Confirm"/>
-                    <Button text="Reply" type='secondary'/>
+                    <Button text="Confirm" onClick={handleConfirm}/>
+                    <Button text="Reply" type='secondary' onClick={() => setPopoverVisible(true)}/>
+                    {popoverVisible && <ReplyPopover onClose={handleClose} onSubmit={handleReply} requester={requester.name}/>}
                 </Buttons>
             </BottomProfile>
-        </ProfileCardContainer>
+        </ProfileCardContainer>}
+        <ToastContainer limit={1}/>
+    </div>
     )
 }

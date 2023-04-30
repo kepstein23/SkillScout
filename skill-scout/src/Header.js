@@ -56,7 +56,10 @@ export default function Header({onClick, onSearch, showHeaderSearchBar}) {
                 <Link to="/profile-page">
                     <Button type="secondary" icon={User} />
                 </Link>
-                <Button type="secondary" icon={PaperPlaneTilt} />
+                <Link to="/inbox">
+                    <Button type="secondary" icon={PaperPlaneTilt} />
+                </Link>
+                
                 {/* <Button type="secondary" IconComponent={PaperPlaneTilt} /> */}
                 {/* <button>Button 1</button>
                 <button>Button 2</button> */}
