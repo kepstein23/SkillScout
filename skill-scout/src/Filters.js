@@ -13,7 +13,7 @@ const FilterContainer = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     gap: 12px;
-    width: 220px;
+    width: 250px;
     padding: 0 24px;
 `;
 
@@ -23,9 +23,8 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     const [appliedInterests, setAppliedInterests] = useState([]);
     const [appliedDept, setAppliedDept] = useState([]);
 
-    // const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
+    const [startDate, setStartDate] = useState(0)
+    const [endDate, setEndDate] = useState(0);
 
     const allDays = [
         { value: 1, label: 'Monday' },
@@ -66,6 +65,7 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
           return set.includes(value);
         });
       }
+
 
       
     function isCoveredByName(objects, array) {
@@ -123,10 +123,53 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
 
     const handleStartDate = (option) => {
         setStartDate(option.value)
+        console.log("handle start start date: " + startDate)
+        console.log("handle start option value: " + option.value)
+
+        // console.log("handle start end date: " + endDate)
+        filterByDate(option.value, endDate)
     }
     const handleEndDate = (option) => { 
-        setEndDate(option.label)
+        setEndDate(option.value)
+        filterByDate(startDate, option.value)
     }
+
+    const filterByDate = (startDate, endDate) => {
+        if (startDate != 0 && endDate != 0) {
+            const newFilteredCards = filteredCards.size > 0 ? filteredCards.filter(item => {
+                return item.props.availability.some(date => {
+                    const dayInNum = convertDateToNumber(date.day)
+                    return dayInNum >= startDate && dayInNum <= endDate
+                })
+            }
+            ) : allCards.filter(item => {
+                return item.props.availability.some(date => {
+                    const dayInNum = convertDateToNumber(date.day)
+                    return dayInNum >= startDate && dayInNum <= endDate
+                })
+            }
+            )
+            setFilteredCards(newFilteredCards)
+        }
+    }
+
+    const convertDateToNumber = (date) => {
+        switch (date) {
+            case "Monday":
+                return 1
+            case "Tuesday":
+                return 2
+            case "Wednesday":
+                return 3
+            case "Thursday":
+                return 4
+            case "Friday":
+                return 5
+            default:
+                return 0
+        }
+    }
+
 
     return (
         <FilterContainer>
@@ -138,9 +181,10 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
             <p className="bold">Department</p>
             <FilterSelect options={allDepts} placeholder="Select department" />
             <p className="bold">From</p>
-            <Select options={allDays} placeholder="Select day" onSelect={handleStartDate} />
+            <Select options={allDays} placeholder="Select day" onChange={handleStartDate} />
             <p className="bold">To</p>
-            <Select menuPosition="fixed" options={allDays} placeholder="Select day" onSelect={handleEndDate} />
+            <Select menuPosition="fixed" options={allDays} placeholder="Select day" onChange={handleEndDate} />
+            
         </FilterContainer>
     )
 

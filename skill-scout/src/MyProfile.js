@@ -7,7 +7,6 @@ import Tab from './Tab.js'
 import {Trophy} from "@phosphor-icons/react"
 import styled from 'styled-components';
 import SkillBar from './components/SkillBar';
-import { useLocation } from 'react-router-dom';
 
 const BioProfile = styled.div`
     display: flex;
@@ -71,22 +70,10 @@ const InterestTags = styled.div`
 
 
 
-function ProfilePage() {
+function ProfilePage({name, title, profilePic, skills, interests, achievements}) {
 
-    const location = useLocation()
-    // if (!location || !location.state) {
-    //     return <div>Loading...</div>;
-    //   }
-    const { name, title, profilePic, skills, interests, achievements, availability } = location.state
+    const bio = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
 
-    const bioFront = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
-    
-    const bioData = "Data Analyst with expertise in data analysis, statistics, and visualization. Passionate about exploring data to uncover insights and drive decision-making. Experienced in using tools such as Excel, Tableau, and Python for data analysis. Interested in machine learning, data mining, and predictive modeling."
-    
-    const bioML = "Machine Learning Engineer with expertise in developing and implementing machine learning models using Python and TensorFlow. Passionate about exploring data to create predictive models and solve complex problems. Experienced in data pre-processing, feature engineering, and model optimization. Interested in deep learning, natural language processing, and computer vision."
-    const bio = title == "Frontend Engineer" ? bioFront : title == "Data Analyst" ? bioData : bioML
-
-    console.log("profile av: " + availability)
 
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
@@ -123,10 +110,16 @@ function ProfilePage() {
         )
     }
 
+    const availability = 
+    [
+      {day: "Monday", start: "4:30", end: "6:00", period: "PM"},
+      {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
+    ]
+
     return(
         <div className="Profile">
             <Header onClick={{}} showHeaderSearchBar={true}/>
-            <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability}>
+            <ProfileInfo name={name} title={title} profilePic={profilePic}>
 
             </ProfileInfo>
 

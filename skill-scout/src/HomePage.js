@@ -29,8 +29,12 @@ function HomePage() {
       profilePic: profilePictures.zohaib,
       skills: [{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}],
       interests: ["CSS", "Frontend", "Design", "Testing", "Java", "React"],
-      achievements: ["achievement", "achievement", "achievement"]
-
+      achievements: ["achievement", "achievement", "achievement"],
+      availability: [
+        {day: "Monday", start: "1:00", end: "2:00", period: "PM"},
+        {day: "Tuesday", start: "4:30", end: "5:30", period: "PM"},
+        {day: "Wednesday", start: "12:30", end: "2:00", period: "PM"}
+      ]
     },
     {
       name: "Grace Lin",
@@ -42,7 +46,13 @@ function HomePage() {
         { name: "Data Visualization", progress: "75%" },
       ],
       interests: ["Data Analysis", "Machine Learning", "Big Data", "Statistics"],
-      achievements: ["Certified Data Analyst", "Data Science Competition Winner", "Published Research Paper"]
+      achievements: ["Certified Data Analyst", "Data Science Competition Winner", "Published Research Paper"],
+      availability: 
+      [
+        {day: "Monday", start: "1:30", end: "2:00", period: "PM"},
+        {day: "Wednesday", start: "3:30", end: "5:00", period: "PM"},
+        {day: "Friday", start: "12:00", end: "2:00", period: "PM"}
+      ]
     },
     {
       name: "Mark Johnson",
@@ -54,7 +64,13 @@ function HomePage() {
         { name: "Project Management", progress: "85%" },
       ],
       interests: ["Scientific Research", "Innovation", "AI", "Data Science"],
-      achievements: ["Best Research Paper Award", "Research Grant Recipient", "Innovative Research Award"]
+      achievements: ["Best Research Paper Award", "Research Grant Recipient", "Innovative Research Award"],
+      availability: 
+      [
+        {day: "Thursday", start: "4:30", end: "6:00", period: "PM"},
+        {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
+      ]
+
     }
   ]
 
@@ -86,6 +102,7 @@ function HomePage() {
         skills={user.skills}
         interests={user.interests}
         achievements={user.achievements}
+        availability={user.availability}
       />
     )
   }
