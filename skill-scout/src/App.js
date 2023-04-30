@@ -2,9 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ProfilePage from './ProfilePage';
 import HomePage from './HomePage';
-import profilePic from './img/maya.png';
 import MyProfile from './MyProfile';
-import profilePic from './img/zohaib.png';
 import profilePictures from './img/profilePictures';
 import InboxPage from './InboxPage';
 
@@ -72,7 +70,7 @@ function App() {
           <Route path="/my-profile" element={<MyProfile 
                     name="Alex Oxlade-Chamberlain"
                     title="Frontend Engineer"
-                    profilePic={profilePic}
+                    profilePic={profilePictures.alexander}
                     skills={[{name: "Java", progress:"22%"}, {name: "CSS", progress: "82%"}, {name: "React", progress: "77%"}]}
                     interests={["CSS", "Frontend", "Design", "Java", "React"]}
                     achievements={["achievement", "achievement", "achievement"]} />} />
