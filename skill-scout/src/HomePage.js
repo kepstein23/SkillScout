@@ -4,9 +4,9 @@ import Header from './Header';
 import Filters from './Filters';
 import ProfileCard from './ProfileCard';
 import styled from 'styled-components';
-import profilePictures from './img/profilePictures';
 import { MainSearch } from './components/MainSearch';
 import LoginPage from './LoginPage';
+import users from './data/userData'; 
 
 const ProfilesContainer = styled.div`
   display: flex;
@@ -21,57 +21,6 @@ const ProfilesContainer = styled.div`
 function HomePage() {
   const [currentUser, setCurrentUser] = useState("")
   const [notifications, setNotifications] = useState([])
-  const users = [
-    {
-      name: "Zohaib Corrigan-Scantling",
-      title: "Frontend Engineer",
-      profilePic: profilePictures.zohaib,
-      skills: [{name: "Java", progress:"90%"}, {name: "CSS", progress: "50%"}],
-      interests: ["CSS", "Frontend", "Design", "Testing", "Java", "React"],
-      achievements: ["achievement", "achievement", "achievement"],
-      availability: [
-        {day: "Monday", start: "1:00", end: "2:00", period: "PM"},
-        {day: "Tuesday", start: "4:30", end: "5:30", period: "PM"},
-        {day: "Wednesday", start: "12:30", end: "2:00", period: "PM"}
-      ]
-    },
-    {
-      name: "Grace Lin",
-      title: "Data Analyst",
-      profilePic:profilePictures.grace,
-      skills: [
-        { name: "Python", progress: "90%" },
-        { name: "SQL", progress: "80%" },
-        { name: "Data Visualization", progress: "75%" },
-      ],
-      interests: ["Data Analysis", "Machine Learning", "Big Data", "Statistics"],
-      achievements: ["Certified Data Analyst", "Data Science Competition Winner", "Published Research Paper"],
-      availability: 
-      [
-        {day: "Monday", start: "1:30", end: "2:00", period: "PM"},
-        {day: "Wednesday", start: "3:30", end: "5:00", period: "PM"},
-        {day: "Friday", start: "12:00", end: "2:00", period: "PM"}
-      ]
-    },
-    {
-      name: "Mark Johnson",
-      title: "Head Researcher",
-      profilePic: profilePictures.mark,
-      skills: [
-        { name: "Research Methodology", progress: "95%" },
-        { name: "Python", progress: "80%" },
-        { name: "Project Management", progress: "85%" },
-      ],
-      interests: ["Scientific Research", "Innovation", "AI", "Data Science"],
-      achievements: ["Best Research Paper Award", "Research Grant Recipient", "Innovative Research Award"],
-      availability: 
-      [
-        {day: "Thursday", start: "4:30", end: "6:00", period: "PM"},
-        {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
-      ]
-
-    }
-  ]
 
   const [filteredUsers, setFilteredUsers] = useState(users);
 
@@ -95,6 +44,8 @@ function HomePage() {
     allDepts.push(user.dept);
     userProfileCards.push(
       <ProfileCard 
+        key={i}
+        id={i}
         name={user.name}
         title={user.title}
         profilePic={user.profilePic}

@@ -1,6 +1,6 @@
 import './App.css'
 import Tab from './Tab.js'
-import {Trophy, Plus} from "@phosphor-icons/react"
+import { Trophy, Plus } from "@phosphor-icons/react"
 import styled from 'styled-components';
 import ButtonPopover from './components/ButtonPopover';
 import SkillBar from './components/SkillBar';
@@ -95,8 +95,8 @@ const InterestTags = styled.div`
 `;
 
 
-function ProfileCard( {name, title, profilePic, skills, interests, achievements, availability} ) {
-    
+function ProfileCard({ id, name, title, profilePic, skills, interests, achievements, availability }) {
+
 
     // const availabilityHTML = formatAvailabilityIntoHTML(availability);
 
@@ -122,7 +122,7 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements,
     for (let i = 0; i < skills.length; i++) {
         const skill = skills[i];
         skillsElements.push(
-            <SkillBar title={skill.name} width={skill.progress}/>
+            <SkillBar title={skill.name} width={skill.progress} />
             //TODO set div width and spacing between
             // <div class="skill-bar" style={{width: skill.progress}}>
             //     <p>{skill.name}</p>
@@ -135,7 +135,7 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements,
         const interest = interests[i];
         interestElements.push(
             //TODO set div width and spacing between
-            <Tab 
+            <Tab
                 deletable={false}
                 text={interest}
             />
@@ -147,9 +147,9 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements,
         const achievement = achievements[i];
         achievementElements.push(
             <div className="trophy">
-                <Trophy/>
+                <Trophy />
             </div>
-            
+
         )
     }
 
@@ -174,27 +174,28 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements,
     return (
         <ProfileCardContainer>
             <TopProfile>
-                    <PicNameTitle>
-                        <img class="profile-pic" src={profilePic} alt="profile"/>
-                        <Link to={"/profile-page"} 
-                        state = 
-                        {{name: name,
-                        title: title,
-                        profilePic: profilePic,
-                        skills: skills,
-                        interests: interests,
-                        achievements: achievements,
-                        availability: availabilityArray
-                        }}
-                         class="profile-card-top-clickable">
-                            <NameTitle>
-                                <h2 style={{margin: 0}}>{name}</h2>
-                                <p style={{ margin: 0 }}>{title}</p>
-                            </NameTitle>
-                        </Link>
-                    </PicNameTitle>
+                <PicNameTitle>
+                    <img class="profile-pic" src={profilePic} alt="profile" />
+                    <Link to={`/profile-page/${id}`}
+                        // state=
+                        // {{
+                        //     name: name,
+                        //     title: title,
+                        //     profilePic: profilePic,
+                        //     skills: skills,
+                        //     interests: interests,
+                        //     achievements: achievements,
+                        //     availability: availabilityArray
+                        // }}
+                        class="profile-card-top-clickable">
+                        <NameTitle>
+                            <h2 style={{ margin: 0 }}>{name}</h2>
+                            <p style={{ margin: 0 }}>{title}</p>
+                        </NameTitle>
+                    </Link>
+                </PicNameTitle>
                 <ButtonPopover icon={Plus} text="New request" />
-                <ToastContainer limit={1}/>
+                <ToastContainer limit={1} />
                 {/* <Button type='primary' icon={Plus} text="New request" showPopover /> */}
             </TopProfile>
             <BottomProfile>
@@ -202,29 +203,29 @@ function ProfileCard( {name, title, profilePic, skills, interests, achievements,
                     <p className='bold'>Top Skills</p>
                     {skillsElements}
                 </Skills>
-                <div style={{height: "100%"}}>
+                <div style={{ height: "100%" }}>
                     <p className='bold'>Interests</p>
                     <InterestTags>
                         {interestElements}
                     </InterestTags>
                 </div>
                 {/* <div>
-                    <p className='bold' style={{width: '100px'}}>Badges</p>
-                    <div class="trophies">
-                        {achievementElements}
-                    </div>
-                    
-                </div> */}
-                        <div>
-            <p className='bold'>Availability</p>
-            <ul>
-                {/* <li>Mon 12-3pm ET</li>
-                <li>Tue 2:30-4pm ET</li>
-                <li>Wen 12-3pm ET</li>
-                <li>Fri 1-2pm ET</li> */}
-                {availabilityHTML}
-            </ul>
-        </div>
+                        <p className='bold' style={{width: '100px'}}>Badges</p>
+                        <div class="trophies">
+                            {achievementElements}
+                        </div>
+                        
+                    </div> */}
+                <div>
+                    <p className='bold'>Availability</p>
+                    <ul>
+                        {/* <li>Mon 12-3pm ET</li>
+                    <li>Tue 2:30-4pm ET</li>
+                    <li>Wen 12-3pm ET</li>
+                    <li>Fri 1-2pm ET</li> */}
+                        {availabilityHTML}
+                    </ul>
+                </div>
             </BottomProfile>
 
 

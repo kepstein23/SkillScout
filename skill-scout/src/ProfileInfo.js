@@ -6,15 +6,15 @@ export const ProfileInfo = ({name, title, profilePic, availability}) => {
 
 
     let availabilityHTML;
-    if (availability !== undefined) {
-        const availabilityArray = availability[availability.length - 1].split("ET");
-        let availabilityHTML = availabilityArray.map((string, index) => (
-            <li key={index}>
-                {string}
-            </li>
-        ));
-        availabilityHTML.pop()
-    }
+    // if (availability) {
+    //     const availabilityArray = availability[availability.length - 1].split("ET");
+    //     let availabilityHTML = availabilityArray.map((string, index) => (
+    //         <li key={index}>
+    //             {string}
+    //         </li>
+    //     ));
+    //     availabilityHTML.pop()
+    // }
 
   return (
     <div class='profile-info'>

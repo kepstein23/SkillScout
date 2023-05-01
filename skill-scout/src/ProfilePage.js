@@ -4,10 +4,11 @@ import { ProfileInfo } from './ProfileInfo';
 import { ProfileContact } from './ProfileContact';
 import './App.css'
 import Tab from './Tab.js'
-import {Trophy} from "@phosphor-icons/react"
+import { Trophy } from "@phosphor-icons/react"
 import styled from 'styled-components';
 import SkillBar from './components/SkillBar';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import users from './data/userData';
 
 const BioProfile = styled.div`
     display: flex;
@@ -70,33 +71,36 @@ const InterestTags = styled.div`
 `;
 
 
-
 function ProfilePage() {
 
     const location = useLocation()
     // if (!location || !location.state) {
     //     return <div>Loading...</div>;
     //   }
-    const { name, title, profilePic, skills, interests, achievements, availability } = location.state
 
-    const bioFront = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
-    
-    const bioData = "Data Analyst with expertise in data analysis, statistics, and visualization. Passionate about exploring data to uncover insights and drive decision-making. Experienced in using tools such as Excel, Tableau, and Python for data analysis. Interested in machine learning, data mining, and predictive modeling."
-    
-    const bioML = "Machine Learning Engineer with expertise in developing and implementing machine learning models using Python and TensorFlow. Passionate about exploring data to create predictive models and solve complex problems. Experienced in data pre-processing, feature engineering, and model optimization. Interested in deep learning, natural language processing, and computer vision."
-    const bio = title == "Frontend Engineer" ? bioFront : title == "Data Analyst" ? bioData : bioML
+    // const { name, title, profilePic, skills, interests, achievements, bio, availability } = location.state;
 
-    console.log("profile av: " + availability)
+    const { userId } = useParams(); // Import useParams from react-router-dom and get the userId
+    console.log("User ID:", userId); // Debug line
+
+
+    // Find the user with the corresponding ID
+    const user = users[parseInt(userId)];
+    console.log("User data:", user); // Debug line
+
+
+    if (!user) {
+        return <div>User not found</div>;
+    }
+
+    const { name, title, profilePic, skills, interests, achievements, bio, availability } = user
+
 
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
         const skill = skills[i];
         skillsElements.push(
-            <SkillBar title={skill.name} width={skill.progress}/>
-            //TODO set div width and spacing between
-            // <div class="skill-bar" style={{width: skill.progress}}>
-            //     <p>{skill.name}</p>
-            // </div>
+            <SkillBar title={skill.name} width={skill.progress} />
         )
     }
 
@@ -104,8 +108,7 @@ function ProfilePage() {
     for (let i = 0; i < interests.length; i++) {
         const interest = interests[i];
         interestElements.push(
-            //TODO set div width and spacing between
-            <Tab 
+            <Tab
                 deletable={false}
                 text={interest}
             />
@@ -117,29 +120,24 @@ function ProfilePage() {
         const achievement = achievements[i];
         achievementElements.push(
             <div class="trophy">
-                <Trophy/>
+                <Trophy />
             </div>
-            
+
         )
     }
 
-    return(
+    return (
         <div className="Profile">
-            <Header onClick={{}} showHeaderSearchBar={true}/>
-            <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability}>
-
-            </ProfileInfo>
-
-            <ProfileContact name={name}>
-                
-            </ProfileContact>
+            <Header onClick={{}} showHeaderSearchBar={true} />
+            <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability} />
+            <ProfileContact name={name}/>
 
             <BottomProfile>
                 <Skills>
                     <p className='bold'>Top Skills</p>
                     {skillsElements}
                 </Skills>
-                <div style={{height: "100%"}}>
+                <div style={{ height: "100%" }}>
                     <p className='bold'>Interests</p>
                     <InterestTags>
                         {interestElements}
@@ -150,7 +148,7 @@ function ProfilePage() {
                     <div class="trophies">
                         {achievementElements}
                     </div>
-                    
+
                 </div>
             </BottomProfile>
             {/* <div class="biography"> 
@@ -161,13 +159,12 @@ function ProfilePage() {
             </div> */}
             <BioProfile>
                 <BioText>
-                <p className='bold'>Bio</p>
-                <p> {bio} </p>
+                    <p className='bold'>Bio</p>
+                    <p> {bio} </p>
                 </BioText>
             </BioProfile>
         </div>
     );
 }
-
 
 export default ProfilePage
