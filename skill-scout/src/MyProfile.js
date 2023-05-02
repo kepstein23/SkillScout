@@ -15,10 +15,6 @@ const BioProfile = styled.div`
     align-items: flex-start;
     padding-top: 20px;
     padding-bottom: 10px;
-    padding-left: 270px;
-
-    width: 50%;
-    height: 100%;
 `;
 
 const BottomProfile = styled.div`
@@ -28,10 +24,8 @@ const BottomProfile = styled.div`
     align-items: flex-start;
     padding-top: 350px;
     padding-left: 270px;
+    flex-wrap: wrap;
     gap: 60px;
-
-    width: 50%;
-    height: 100%;
 `;
 
 const BioText = styled.div`
@@ -57,23 +51,63 @@ const Skills = styled.div`
 `;
 
 const InterestTags = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 12px;
-    flex-wrap: wrap;
-
-    width: 316px;
-    height: 28px;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 10px;
+flex-wrap: wrap;
 `;
 
+const PastProjectsContainer = styled.div`
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+`;
+
+const ProjectContainer = styled.div`
+    padding-left: 2.5%;
+    margin-top: 10px;
+    width: 30%
+`;
+
+const AvailabilityContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+`;
+
+const AvailabilityBio = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 32px;
+`;
+
+const InterestProject = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+`;
+
+const InterestContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+`
 
 
 function ProfilePage({name, title, profilePic, skills, interests, achievements}) {
 
     const bio = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
-
+    const pastProjects = [{name: "Networks & Reputations", description: "In this project, I added bots to an experiment in Emprica. I used Python for data analysis and Javascript for frontend development."}]
 
     let skillsElements = [];
     for (let i = 0; i < skills.length; i++) {
@@ -84,6 +118,17 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements})
             // <div class="skill-bar" style={{width: skill.progress}}>
             //     <p>{skill.name}</p>
             // </div>
+        )
+    }
+
+    let projectElements = [];
+    for (let i = 0; i < pastProjects.length; i++) {
+        const project = pastProjects[i];
+        projectElements.push(
+            <ProjectContainer>
+                <p className='bold'>{project.name}</p>
+                <p>{project.description}</p>
+            </ProjectContainer>
         )
     }
 
@@ -115,6 +160,14 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements})
       {day: "Monday", start: "4:30", end: "6:00", period: "PM"},
       {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
     ]
+    let availabilityElements = [];
+    for (let i = 0; i < availability.length; i++) {
+        let avail = availability[i];
+        let str = avail.day + " " + avail.start + " - " + avail.end + " " + avail.period;
+        availabilityElements.push(
+            <li>{str}</li>
+        )
+    }
 
     return(
         <div className="Profile">
@@ -128,23 +181,38 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements})
             </ProfileContact>
 
             <BottomProfile>
+                <AvailabilityBio>
+                    <AvailabilityContainer>
+                        <p className='bold'>Availability </p>
+                        <ul>
+                            {availabilityElements}
+                        </ul>
+                    </AvailabilityContainer>
+                    <BioProfile>
+                        <BioText>
+                        <p className='bold'>Bio</p>
+                        <p> {bio} </p>
+                        </BioText>
+                    </BioProfile>
+                </AvailabilityBio>
+                
                 <Skills>
                     <p className='bold'>Top Skills</p>
                     {skillsElements}
                 </Skills>
-                <div style={{height: "100%"}}>
-                    <p className='bold'>Interests</p>
-                    <InterestTags>
-                        {interestElements}
-                    </InterestTags>
-                </div>
-                <div>
-                    <p className='bold'>Badges</p>
-                    <div class="trophies">
-                        {achievementElements}
-                    </div>
-                    
-                </div>
+                <InterestProject>
+                    <InterestContainer>
+                        <p className='bold'>Interests</p>
+                        <InterestTags>
+                            {interestElements}
+                        </InterestTags>
+                    </InterestContainer>
+                    <PastProjectsContainer>
+                        <p className='bold'>Past Projects</p>
+                        {projectElements}
+                    </PastProjectsContainer>
+                </InterestProject>
+                
             </BottomProfile>
             {/* <div class="biography"> 
                 <p>Bio</p>
@@ -152,12 +220,6 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements})
                     Passionate about creating beautiful and engaging user interfaces.
                     Interested in data analytics, algorithms, and animation. </p>
             </div> */}
-            <BioProfile>
-                <BioText>
-                <p className='bold'>Bio</p>
-                <p> {bio} </p>
-                </BioText>
-            </BioProfile>
         </div>
     );
 }

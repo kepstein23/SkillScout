@@ -143,13 +143,6 @@ function ProfilePage() {
                         {interestElements}
                     </InterestTags>
                 </div>
-                <div>
-                    <p className='bold'>Badges</p>
-                    <div class="trophies">
-                        {achievementElements}
-                    </div>
-
-                </div>
             </BottomProfile>
             {/* <div class="biography"> 
                 <p>Bio</p>
