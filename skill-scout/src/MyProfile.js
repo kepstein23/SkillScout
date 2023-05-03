@@ -70,7 +70,7 @@ const InterestTags = styled.div`
 
 
 
-function ProfilePage({name, title, profilePic, skills, interests, achievements}) {
+function ProfilePage({name, title, profilePic, skills, interests, achievements, availability}) {
 
     const bio = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
 
@@ -109,17 +109,11 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements})
             
         )
     }
-
-    const availability = 
-    [
-      {day: "Monday", start: "4:30", end: "6:00", period: "PM"},
-      {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
-    ]
-
+    
     return(
         <div className="Profile">
             <Header onClick={{}} showHeaderSearchBar={true}/>
-            <ProfileInfo name={name} title={title} profilePic={profilePic}>
+            <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability}>
 
             </ProfileInfo>
 

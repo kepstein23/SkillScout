@@ -15,7 +15,16 @@ export const ProfileInfo = ({name, title, profilePic, availability}) => {
     //     ));
     //     availabilityHTML.pop()
     // }
-
+    let availabilityElements = [];
+    for (let i = 0; i < availability.length; i++) {
+        const avail = availability[i];
+        const str = avail.day + " " + avail.start + " - " + avail.end + " " + avail.period
+        availabilityElements.push(
+            <li>
+                {str}
+            </li>
+        )
+    }
   return (
     <div class='profile-info'>
         <div class='pinfo-picture'>
@@ -24,8 +33,7 @@ export const ProfileInfo = ({name, title, profilePic, availability}) => {
         <div class='pinfo-availability'>
             <p class='pinfo-av-title'>Availability</p>
             <ul>
-                {availability !== undefined && availabilityHTML}
-                {availability === undefined && <li>Monday 1:00 - 2:00 PM ET</li>}
+                {availabilityElements}
             </ul>
         </div>
         <div class='pinfo-name-title-block'>

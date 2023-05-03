@@ -75,7 +75,10 @@ function App() {
                     profilePic={profilePictures.alexander}
                     skills={[{name: "Java", progress:"22%"}, {name: "CSS", progress: "82%"}, {name: "React", progress: "77%"}]}
                     interests={["CSS", "Frontend", "Design", "Java", "React"]}
-                    achievements={["achievement", "achievement", "achievement"]} />} />
+                    achievements={["achievement", "achievement", "achievement"]}
+                    availability={[{day: "Monday", start: "1:00", end: "3:00", period: "PM"}, {day: "Friday", start: "10:00", end: "11:00", period: "AM"}]} 
+                    />} 
+          />
           <Route path="/profile-page/:userId" element={<ProfilePage/>} />
           <Route path="/inbox" element={
             <InboxPage 
