@@ -26,13 +26,14 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     const [startDate, setStartDate] = useState(0)
     const [endDate, setEndDate] = useState(0);
 
-    const allDays = [
-        { value: 1, label: 'Monday' },
-        { value: 2, label: 'Tuesday' },
-        { value: 3, label: 'Wednesday' },
-        { value: 4, label: 'Thursday' },
-        { value: 5, label: 'Friday' },
-      ];
+    // const allDays = [
+    //     { value: 1, label: 'Monday' },
+    //     { value: 2, label: 'Tuesday' },
+    //     { value: 3, label: 'Wednesday' },
+    //     { value: 4, label: 'Thursday' },
+    //     { value: 5, label: 'Friday' },
+    //   ];
+    const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 
     let skillOptions = []
@@ -98,18 +99,35 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         )
         setFilteredCards(newFilteredCards)
     }
+    
+    function filterByDay(selectedDays) {
+        //check if the original cards have at least one day in common with the selected days
+        if (selectedDays.length == 0) {
+            setFilteredCards(allCards)
+        } else {
+            const newFilteredCards = filteredCards.size > 0 ? filteredCards.filter(item => {
+                return item.props.availability.some(date => {
+                    return selectedDays.includes(date.day)
+                })
+            }
+            ) : allCards.filter(item => {
+                return item.props.availability.some(date => {
+                    return selectedDays.includes(date.day)
+                })
+            }
+            )
+            setFilteredCards(newFilteredCards)
+        }
+
+    }
 
 
-    function onSelectSkill(selectedList) {
+    function onSkillsChange(selectedList) {
         console.log(filteredCards[0])
         filterBySkills(selectedList)
     }
 
-    function onSelectInterest(selectedList) {
-        filterByInterests(selectedList)
-    }
-
-    function onRemoveInterest(selectedList) {
+    function onInterestsChange(selectedList) {
         filterByInterests(selectedList)
     }
 
@@ -117,9 +135,6 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         setAppliedDept(selectedList)
     }
 
-    function onRemoveSkill(selectedList) {
-        filterBySkills(selectedList)
-    }
 
     const handleStartDate = (option) => {
         setStartDate(option.value)
@@ -170,20 +185,25 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         }
     }
 
+    const onDaysChange = (selectedList) => {
+        filterByDay(selectedList)
+    }
+
 
     return (
         <FilterContainer>
             <h3>Filters</h3>
             <p className="bold">Skills</p>
-            <FilterSelect options={allSkills} placeholder="Select skills" onSelect={onSelectSkill} onRemove={onRemoveSkill} />
+            <FilterSelect options={allSkills} placeholder="Select skills" onSelect={onSkillsChange} onRemove={onSkillsChange} />
             <p className="bold">Interests</p>
-            <FilterSelect options={allInterests} placeholder="Select interests" onSelect={onSelectInterest} onRemove={onRemoveInterest} />
+            <FilterSelect options={allInterests} placeholder="Select interests" onSelect={onInterestsChange} onRemove={onInterestsChange} />
             <p className="bold">Department</p>
             <FilterSelect options={allDepts} placeholder="Select department" />
-            <p className="bold">From</p>
-            <Select options={allDays} placeholder="Select day" onChange={handleStartDate} />
-            <p className="bold">To</p>
-            <Select menuPosition="fixed" options={allDays} placeholder="Select day" onChange={handleEndDate} />
+            <p className="bold">Available Days</p>
+            <FilterSelect menuPosition="fixed" options={allDays} placeholder="Select days" onSelect={onDaysChange} onRemove={onDaysChange} />
+            {/* <Select options={allDays} placeholder="Select day" onChange={handleStartDate} /> */}
+            {/* <p className="bold">To</p> */}
+            {/* <Select menuPosition="fixed" options={allDays} placeholder="Select day" onChange={handleEndDate} /> */}
             
         </FilterContainer>
     )
