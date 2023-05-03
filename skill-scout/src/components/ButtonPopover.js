@@ -9,7 +9,7 @@ const Container = styled.div`
     display: inline-block;
 `;
 
-const ButtonPopover = ({ type = 'primary', icon: IconComponent, text }) => {
+const ButtonPopover = ({ type = 'primary', icon: IconComponent, text, allSkills }) => {
     const [isPopoverVisible, setIsPopoverVisible] = useState(false);
 
     const handleButtonClick = () => {
@@ -32,7 +32,7 @@ const ButtonPopover = ({ type = 'primary', icon: IconComponent, text }) => {
     return (
         <Container>
             <Button type={type} icon={IconComponent} text={text} onClick={handleButtonClick} />
-            {isPopoverVisible && <Popover onClose={handleClose} onSubmit={handleSubmit} />}
+            {isPopoverVisible && <Popover onClose={handleClose} onSubmit={handleSubmit} allSkills={allSkills} />}
         </Container>
     );
 };

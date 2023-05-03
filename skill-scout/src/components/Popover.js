@@ -42,10 +42,8 @@ const ButtonsWrapper = styled.div`
   gap: 10px;
 `;
 
-const Popover = ({ onClose, onSubmit }) => {
+const Popover = ({ onClose, onSubmit, allSkills }) => {
     const title = `New request`;
-
-    const skills = ['React', 'Java', 'CSS', 'HTML', 'JavaScript', 'Figma'];
 
     return (
         <PopoverContainer>
@@ -53,7 +51,7 @@ const Popover = ({ onClose, onSubmit }) => {
             <PopoverContent>
                 <TextInput type="text" placeholder="Description of request" />
                 <p className='bold'>Skills you're requesting</p>
-                <FilterSelect options={skills} placeholder="Select skills" />
+                <FilterSelect options={allSkills} placeholder="Select skills" />
             </PopoverContent>
             <ButtonsWrapper>
                 <Button type="secondary" text="Cancel" onClick={onClose} />
