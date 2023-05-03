@@ -60,9 +60,9 @@ flex-wrap: wrap;
 `;
 
 const PastProjectsContainer = styled.div`
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 `;
 
 const ProjectContainer = styled.div`
@@ -104,7 +104,7 @@ const InterestContainer = styled.div`
 `
 
 
-function ProfilePage({name, title, profilePic, skills, interests, achievements, availability}) {
+function ProfilePage({ name, title, profilePic, skills, interests, achievements, availability }) {
 
     const bio = "Frontend Engineer with expertise in React, CSS, and HTML. Passionate about creating beautiful and engaging user interfaces. Interested in data analytics, algorithms, and animation"
     const pastProjects = [{name: "Networks & Reputations", description: "In this project, I added bots to an experiment in Emprica. I used Python for data analysis and Javascript for frontend development."}]
@@ -155,11 +155,11 @@ function ProfilePage({name, title, profilePic, skills, interests, achievements, 
         )
     }
 
-    const availability = 
-    [
-      {day: "Monday", start: "4:30", end: "6:00", period: "PM"},
-      {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
-    ]
+    // const availability = 
+    // [
+    //   {day: "Monday", start: "4:30", end: "6:00", period: "PM"},
+    //   {day: "Friday", start: "5:00", end: "7:30", period: "PM"}
+    // ]
     let availabilityElements = [];
     for (let i = 0; i < availability.length; i++) {
         let avail = availability[i];

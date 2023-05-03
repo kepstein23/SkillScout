@@ -53,7 +53,7 @@ export default function Header({onClick, onSearch, showHeaderSearchBar}) {
             {/* </div> */}
             {showHeaderSearchBar && <SearchBar onSearch={onSearch} id={"header-search"}/>}
             <LeftButtons>
-                <Link to="/my-profile">
+                <Link to="/profile-page/9">
                     <Button type="secondary" icon={User} />
                 </Link>
                 <Link to="/inbox">

@@ -12,6 +12,7 @@ export const ProfileContact = ({name}) => {
     <div className='profile-contact'>
         <div className='pcontact-container'>
             <div className='pcontact-item-container'> 
+                <h3>Contact</h3>
                 <div className='pcontact-item-title'>
                     Email
                 </div>

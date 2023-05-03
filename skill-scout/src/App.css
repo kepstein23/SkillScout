@@ -63,11 +63,11 @@
   padding: 0px;
   gap: 18px;
 
-  position: absolute;
+  /* position: absolute;
   width: 728px;
   height: 150px;
   left: 268px;
-  top: 131px;
+  top: 131px; */
 }
 
 .pinfo-name-title-block {
@@ -77,11 +77,11 @@
 }
 
 .pinfo-availability {
-  position: absolute;
+  /* position: absolute;
   width: 728px;
   height: 150px;
   left: 0px;
-  top: 131px;
+  top: 131px; */
 
   flex: none;
   order: 1;
@@ -106,11 +106,11 @@
 
 .pinfo-name-text {
   /* Zohaib Corrigan-Scantling */
-  position: absolute;
+  /* position: absolute;
   width: 530px;
   height: 56px;
   left: 138px;
-  top: 31px;
+  top: 31px; */
 
   /* Default/Headings/h1 Bold */
   /* font-family: 'DM Sans'; */
@@ -125,11 +125,11 @@
 }
 
 .pinfo-title-text {
-  position: absolute;
+  /* position: absolute;
   width: 192px;
   height: 32px;
   left: 138px;
-  top: 75px;
+  top: 75px; */
   
   /* Default/Headings/h3 Bold */
   
@@ -159,36 +159,36 @@
 }
 
 .profile-contact {
-  position: absolute;
+  /* position: absolute; */
   width: 322px;
-  height: 258px;
+  /* height: 258px;
   left: 801px;
-  top: 106px;
+  top: 106px; */
 }
 
 .pcontact-container {
 
-  position: absolute;
+  /* position: absolute;
   width: 250px;
   height: 200px;
   left: 175px;
-  top: 26px;
+  top: 26px; */
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 21px;
   gap: 32px;
-  
 
 
-/* Default/White */
 
-background: #FFFFFF;
-/* Box Shadows/Small */
+  /* Default/White */
 
-box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
-border-radius: 6px;
+  background: #FFFFFF;
+  /* Box Shadows/Small */
+
+  box-shadow: 0px 11px 20px rgba(5, 16, 55, 0.1);
+  border-radius: 6px;
 }
 
 .pcontact-item-container {
@@ -201,7 +201,7 @@ border-radius: 6px;
   gap: 1px;
   
   width: 274px;
-  height: 53px;
+  /* height: 53px; */
   
   
   /* Inside auto layout */
@@ -214,22 +214,22 @@ border-radius: 6px;
 
 .pcontact-item-title {
   width: 48px;
-height: 26px;
+  /* height: 26px; */
 
-/* Default/Body/Bold */
+  /* Default/Body/Bold */
 
-font-style: normal;
-font-weight: 650;
-font-size: 17px;
-line-height: 26px;
-/* identical to box height, or 144% */
+  font-style: normal;
+  font-weight: 650;
+  font-size: 17px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
 
 
-color: #000000;
+  color: #000000;
 
-flex: none;
-order: 0;
-flex-grow: 0;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
 .pcontact-item-body {
@@ -242,19 +242,11 @@ flex-grow: 0;
   font-weight: 550;
   font-size: 16px;
   line-height: 26px;
-  /* identical to box height, or 144% */
   
   
   /* Default/Primary (Light) */
   
   color: #3424C6;
-  
-  
-  /* Inside auto layout */
-  
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
 
@@ -324,4 +316,26 @@ flex-grow: 0;
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  padding: 3rem;
+
+  gap: 96px;
+
+}
+
+.avail-bio {
+  display: flex;
+  gap: 1rem;
 }

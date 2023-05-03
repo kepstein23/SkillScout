@@ -177,16 +177,6 @@ function ProfileCard({ id, name, title, profilePic, skills, interests, achieveme
                 <PicNameTitle>
                     <img class="profile-pic" src={profilePic} alt="profile" />
                     <Link to={`/profile-page/${id}`}
-                        // state=
-                        // {{
-                        //     name: name,
-                        //     title: title,
-                        //     profilePic: profilePic,
-                        //     skills: skills,
-                        //     interests: interests,
-                        //     achievements: achievements,
-                        //     availability: availabilityArray
-                        // }}
                         class="profile-card-top-clickable">
                         <NameTitle>
                             <h2 style={{ margin: 0 }}>{name}</h2>
@@ -209,20 +199,9 @@ function ProfileCard({ id, name, title, profilePic, skills, interests, achieveme
                         {interestElements}
                     </InterestTags>
                 </div>
-                {/* <div>
-                        <p className='bold' style={{width: '100px'}}>Badges</p>
-                        <div class="trophies">
-                            {achievementElements}
-                        </div>
-                        
-                    </div> */}
                 <div>
                     <p className='bold'>Availability</p>
                     <ul>
-                        {/* <li>Mon 12-3pm ET</li>
-                    <li>Tue 2:30-4pm ET</li>
-                    <li>Wen 12-3pm ET</li>
-                    <li>Fri 1-2pm ET</li> */}
                         {availabilityHTML}
                     </ul>
                 </div>

@@ -10,41 +10,15 @@ import SkillBar from './components/SkillBar';
 import { useLocation, useParams } from 'react-router-dom';
 import users from './data/userData';
 
-const BioProfile = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    padding-left: 270px;
-
-    width: 50%;
-    height: 100%;
-`;
-
 const BottomProfile = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
-    padding-top: 350px;
-    padding-left: 270px;
+    // padding-top: 350px;
     gap: 60px;
 
-    width: 50%;
-    height: 100%;
-`;
-
-const BioText = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    font-weight: 600;
-    width: 237px;
-    height: 100%;
+    width: 100%;
 `;
 
 const Skills = styled.div`
@@ -70,30 +44,36 @@ const InterestTags = styled.div`
     height: 28px;
 `;
 
+const PastProjectsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 400px;
+`;
+
+const ProjectContainer = styled.div`
+    // padding-left: 2.5%;
+    margin-top: 10px;
+    // width: 30%
+`;
+
 
 function ProfilePage() {
 
-    const location = useLocation()
-    // if (!location || !location.state) {
-    //     return <div>Loading...</div>;
-    //   }
-
-    // const { name, title, profilePic, skills, interests, achievements, bio, availability } = location.state;
-
     const { userId } = useParams(); // Import useParams from react-router-dom and get the userId
-    console.log("User ID:", userId); // Debug line
+    // console.log("User ID:", userId); // Debug line
 
 
     // Find the user with the corresponding ID
     const user = users[parseInt(userId)];
-    console.log("User data:", user); // Debug line
+    // console.log("User data:", user); // Debug line
 
 
     if (!user) {
         return <div>User not found</div>;
     }
 
-    const { name, title, profilePic, skills, interests, achievements, bio, availability } = user
+    const { name, title, profilePic, skills, interests, achievements, bio, pastProjects, availability } = user;
 
 
     let skillsElements = [];
@@ -126,11 +106,24 @@ function ProfilePage() {
         )
     }
 
+    let projectElements = [];
+    for (let i = 0; i < pastProjects.length; i++) {
+        const project = pastProjects[i];
+        projectElements.push(
+            <ProjectContainer>
+                <p className='bold'>{project.name}</p>
+                <p>{project.description}</p>
+            </ProjectContainer>
+        )
+    }
+
     return (
-        <div className="Profile">
+        <>
             <Header onClick={{}} showHeaderSearchBar={true} />
-            <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability} />
-            <ProfileContact name={name}/>
+            <div className='profile-page-top'>
+                <ProfileInfo name={name} title={title} profilePic={profilePic} availability={availability} bio={bio} />
+                <ProfileContact name={name} />
+            </div>
 
             <BottomProfile>
                 <Skills>
@@ -143,6 +136,10 @@ function ProfilePage() {
                         {interestElements}
                     </InterestTags>
                 </div>
+                <PastProjectsContainer>
+                    <p className='bold'>Past Projects</p>
+                    {projectElements}
+                </PastProjectsContainer>
             </BottomProfile>
             {/* <div class="biography"> 
                 <p>Bio</p>
@@ -150,13 +147,11 @@ function ProfilePage() {
                     Passionate about creating beautiful and engaging user interfaces.
                     Interested in data analytics, algorithms, and animation. </p>
             </div> */}
-            <BioProfile>
-                <BioText>
-                    <p className='bold'>Bio</p>
-                    <p> {bio} </p>
-                </BioText>
-            </BioProfile>
-        </div>
+            {/* <BioText>
+                <p className='bold'>Bio</p>
+                <p> {bio} </p>
+            </BioText> */}
+        </>
     );
 }
 

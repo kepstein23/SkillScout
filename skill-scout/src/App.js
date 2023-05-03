@@ -69,7 +69,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LoginPage />}  />
           <Route exact path="/search" element={<HomePage />}  />
-          <Route path="/my-profile" element={<MyProfile 
+          {/* <Route path="/profile-page/9" element={<ProfilePage />} /> */}
+          {/* <Route path="/my-profile" element={<MyProfile 
                     name="Alex Oxlade-Chamberlain"
                     title="Frontend Engineer"
                     profilePic={profilePictures.alexander}
@@ -78,7 +79,7 @@ function App() {
                     achievements={["achievement", "achievement", "achievement"]}
                     availability={[{day: "Monday", start: "1:00", end: "3:00", period: "PM"}, {day: "Friday", start: "10:00", end: "11:00", period: "AM"}]} 
                     />} 
-          />
+          /> */}
           <Route path="/profile-page/:userId" element={<ProfilePage/>} />
           <Route path="/inbox" element={
             <InboxPage 
