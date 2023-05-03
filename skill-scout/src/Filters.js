@@ -33,7 +33,7 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
     //     { value: 4, label: 'Thursday' },
     //     { value: 5, label: 'Friday' },
     //   ];
-    const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Any Day']
+    const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 
     let skillOptions = []
@@ -200,7 +200,7 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
             <p className="bold">Department</p>
             <FilterSelect options={allDepts} placeholder="Select department" />
             <p className="bold">Available Days</p>
-            <FilterSelect options={allDays} placeholder="Select days" onSelect={onDaysChange} onRemove={onDaysChange} />
+            <FilterSelect menuPosition="fixed" options={allDays} placeholder="Select days" onSelect={onDaysChange} onRemove={onDaysChange} />
             {/* <Select options={allDays} placeholder="Select day" onChange={handleStartDate} /> */}
             {/* <p className="bold">To</p> */}
             {/* <Select menuPosition="fixed" options={allDays} placeholder="Select day" onChange={handleEndDate} /> */}

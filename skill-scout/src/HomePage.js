@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { MainSearch } from './components/MainSearch';
 import LoginPage from './LoginPage';
 import users from './data/userData'; 
+import NotFound from './components/NotFound';
 
 const ProfilesContainer = styled.div`
   display: flex;
@@ -115,9 +116,16 @@ function HomePage() {
             setFilteredCards={setFilteredCards}
             allCards={userProfileCards}
             handleSearch={handleSearch} />
-          <ProfilesContainer>
+          {/* <ProfilesContainer>
             {filteredCards}
-          </ProfilesContainer>
+          </ProfilesContainer> */}
+          {filteredCards.length > 0 ? (
+    <ProfilesContainer>{filteredCards}</ProfilesContainer>
+) : (
+    <NotFound> 
+      
+    </NotFound>
+)}
 
         </div></>
       {/* {!hasSearched &&
