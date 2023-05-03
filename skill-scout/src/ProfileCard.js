@@ -194,7 +194,7 @@ function ProfileCard({ id, name, title, profilePic, skills, interests, achieveme
                         </NameTitle>
                     </Link>
                 </PicNameTitle>
-                <ButtonPopover icon={Plus} text="New request" />
+                <ButtonPopover icon={Plus} text="New request"/>
                 <ToastContainer limit={1} />
                 {/* <Button type='primary' icon={Plus} text="New request" showPopover /> */}
             </TopProfile>

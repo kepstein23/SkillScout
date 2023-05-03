@@ -22,7 +22,7 @@ export default function FilterSelect({ options, placeholder, onSelect, onRemove 
                 },
                 searchBox: {
                     
-                }
+                },
             }}
         />
     )

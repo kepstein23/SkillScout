@@ -52,13 +52,13 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         )
     }
 
-    let deptOptions = []
-    for (let i = 0; i < allDepts.length; i++) {
-        const dept = allDepts[i];
-        deptOptions.push(
-            <option>{dept}</option>
-        )
-    }
+    // let deptOptions = []
+    // for (let i = 0; i < allDepts.length; i++) {
+    //     const dept = allDepts[i];
+    //     deptOptions.push(
+    //         <option>{dept}</option>
+    //     )
+    // }
 
 
     function isSuperset(set, subset) {
@@ -131,9 +131,9 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
         filterByInterests(selectedList)
     }
 
-    function onSelectDept(selectedList) {
-        setAppliedDept(selectedList)
-    }
+    // function onSelectDept(selectedList) {
+    //     setAppliedDept(selectedList)
+    // }
 
 
     const handleStartDate = (option) => {
@@ -197,8 +197,8 @@ export default function Filters({users, filteredUsers, allSkills, allInterests, 
             <FilterSelect options={allSkills} placeholder="Select skills" onSelect={onSkillsChange} onRemove={onSkillsChange} />
             <p className="bold">Interests</p>
             <FilterSelect options={allInterests} placeholder="Select interests" onSelect={onInterestsChange} onRemove={onInterestsChange} />
-            <p className="bold">Department</p>
-            <FilterSelect options={allDepts} placeholder="Select department" />
+            {/* <p className="bold">Department</p>
+            <FilterSelect options={allDepts} placeholder="Select department" /> */}
             <p className="bold">Available Days</p>
             <FilterSelect menuPosition="fixed" options={allDays} placeholder="Select days" onSelect={onDaysChange} onRemove={onDaysChange} />
             {/* <Select options={allDays} placeholder="Select day" onChange={handleStartDate} /> */}

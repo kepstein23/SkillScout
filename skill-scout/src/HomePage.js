@@ -14,7 +14,7 @@ const ProfilesContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 250px;
+  margin-left: 300px;
   flex-grow: 1;
   max-width: 1000px;
 `;
@@ -37,10 +37,14 @@ function HomePage() {
   for (let i = 0; i < users.length; i++) {
     const user = users[i];
     for (let j = 0; j < user.skills.length; j++) {
-      allSkills.push(user.skills[j].name);
+      if (!allSkills.includes(user.skills[j].name)) {
+        allSkills.push(user.skills[j].name);
+      }
     }
     for (let j = 0; j < user.interests.length; j++) {
-      allInterests.push(user.interests[j]);
+      if (!allInterests.includes(user.interests[j])){
+        allInterests.push(user.interests[j]);
+      }
     }
     allDepts.push(user.dept);
     userProfileCards.push(
