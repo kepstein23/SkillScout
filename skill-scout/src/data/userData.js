@@ -56,7 +56,7 @@ const users = [
     {
         name: "Emma Thompson",
         title: "Backend Engineer",
-        profilePic: "https://randomuser.me/api/portraits/women/20.jpg",
+        profilePic: "https://randomuser.me/api/portraits/women/90.jpg",
         skills: [
             { name: "Node.js", progress: "80%" },
             { name: "Python", progress: "70%" },
@@ -70,6 +70,44 @@ const users = [
             { day: "Wednesday", start: "3:00", end: "5:00", period: "PM" },
             { day: "Friday", start: "9:00", end: "10:30", period: "AM" }
         ]
+    },
+    {
+        name: "Margaret Thompson",
+        title: "Professor of Physics",
+        profilePic: "https://randomuser.me/api/portraits/women/62.jpg",
+        skills: [
+            { name: "Quantum Mechanics", progress: "90%" },
+            { name: "Statistical Mechanics", progress: "80%" },
+            { name: "Electromagnetism", progress: "75%" },
+        ],
+        interests: ["Theoretical Physics", "Quantum Computing", "Science Outreach"],
+        achievements: ["Nobel Prize in Physics", "Fellow of the Royal Society", "Breakthrough Prize in Fundamental Physics"],
+        bio:
+            "Professor of Physics with expertise in theoretical physics and quantum computing. Passionate about advancing our understanding of the fundamental laws of nature. Experienced in teaching and mentoring students in physics and related fields. Interested in science outreach and communication.",
+        availability: [
+            { day: "Monday", start: "1:00", end: "2:30", period: "PM" },
+            { day: "Wednesday", start: "3:00", end: "4:30", period: "PM" },
+            { day: "Friday", start: "10:00", end: "11:30", period: "AM" },
+        ],
+    },
+    {
+        name: "Michael Patel",
+        title: "Assistant Professor of Computer Science",
+        profilePic: "https://randomuser.me/api/portraits/men/37.jpg",
+        skills: [
+            { name: "Artificial Intelligence", progress: "90%" },
+            { name: "Machine Learning", progress: "80%" },
+            { name: "Computer Vision", progress: "75%" },
+        ],
+        interests: ["Deep Learning", "Robotics", "Data Privacy"],
+        achievements: ["Best Paper Award at CVPR", "NSF CAREER Award", "Google Faculty Research Award"],
+        bio:
+            "Assistant Professor of Computer Science with expertise in artificial intelligence, machine learning, and computer vision. Passionate about developing algorithms that can learn from data and make intelligent decisions. Experienced in teaching and mentoring graduate students in computer science. Interested in robotics and data privacy.",
+        availability: [
+            { day: "Monday", start: "9:00", end: "11:00", period: "AM" },
+            { day: "Tuesday", start: "1:00", end: "2:30", period: "PM" },
+            { day: "Thursday", start: "10:00", end: "11:30", period: "AM" },
+        ],
     },
     {
         name: "Oliver Smith",
@@ -214,6 +252,44 @@ const users = [
             { day: "Wednesday", start: "9:00", end: "11:00", period: "AM" },
             { day: "Friday", start: "1:00", end: "3:00", period: "PM" }
         ]
+    },
+    {
+        name: "Jasmine Johnson",
+        title: "UX Designer",
+        profilePic: "https://randomuser.me/api/portraits/women/42.jpg",
+        skills: [
+            { name: "User Research", progress: "90%" },
+            { name: "Prototyping", progress: "80%" },
+            { name: "Usability Testing", progress: "75%" },
+        ],
+        interests: ["UX Design", "Human-Computer Interaction", "Visual Design", "Product Management"],
+        achievements: ["UX Design Award", "Published Design Case Study"],
+        bio:
+            "UX Designer with expertise in user research, prototyping, and usability testing. Passionate about creating intuitive and delightful user experiences. Experienced in using tools such as Sketch, Figma, and InVision for design. Interested in product management and design leadership.",
+        availability: [
+            { day: "Monday", start: "9:00", end: "10:30", period: "AM" },
+            { day: "Wednesday", start: "2:00", end: "4:00", period: "PM" },
+            { day: "Friday", start: "11:00", end: "12:30", period: "PM" },
+        ],
+    },
+    {
+        name: "Samuel Rodriguez",
+        title: "Backend Developer",
+        profilePic: "https://randomuser.me/api/portraits/men/98.jpg",
+        skills: [
+            { name: "Java", progress: "90%" },
+            { name: "SQL", progress: "80%" },
+            { name: "Spring Framework", progress: "75%" },
+        ],
+        interests: ["Backend Development", "Database Design", "Microservices", "DevOps"],
+        achievements: ["Java Certification", "Spring Boot Project Award"],
+        bio:
+            "Backend Developer with expertise in Java, SQL, and Spring Framework. Passionate about designing scalable and reliable systems. Experienced in building microservices and deploying them with containerization technologies such as Docker and Kubernetes. Interested in database design and DevOps.",
+        availability: [
+            { day: "Tuesday", start: "3:00", end: "5:00", period: "PM" },
+            { day: "Thursday", start: "10:00", end: "11:30", period: "AM" },
+            { day: "Friday", start: "2:00", end: "3:30", period: "PM" },
+        ],
     }
 
 

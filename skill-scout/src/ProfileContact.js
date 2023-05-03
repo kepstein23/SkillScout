@@ -27,7 +27,7 @@ export const ProfileContact = ({name}) => {
                     @{nameFormatted}
                 </div>
             </div>
-            <ButtonPopover  icon={Plus} text="New request" />
+            <ButtonPopover  icon={Plus} text="New request"/>
             <ToastContainer limit={1} />
         </div>
     </div>
