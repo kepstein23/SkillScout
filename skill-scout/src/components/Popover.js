@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import FilterSelect from './FilterSelect';
+import users from '../data/userData';
 
 const PopoverContainer = styled.div`
   position: absolute;
@@ -42,8 +43,19 @@ const ButtonsWrapper = styled.div`
   gap: 10px;
 `;
 
-const Popover = ({ onClose, onSubmit, allSkills }) => {
+const Popover = ({ onClose, onSubmit }) => {
     const title = `New request`;
+
+    let allSkills = [];
+    for (let i = 0; i < users.length; i++) {
+        let skills = users[i].skills;
+        for (let j = 0; j < skills.length; j++) {
+            if (!allSkills.includes(skills[j].name)) {
+                allSkills.push(skills[j].name)
+            }
+        }
+        
+    }
 
     return (
         <PopoverContainer>

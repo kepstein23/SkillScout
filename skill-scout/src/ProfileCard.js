@@ -95,7 +95,7 @@ const InterestTags = styled.div`
 `;
 
 
-function ProfileCard({ id, name, title, profilePic, skills, interests, achievements, availability, allSkills }) {
+function ProfileCard({ id, name, title, profilePic, skills, interests, achievements, availability }) {
 
 
     // const availabilityHTML = formatAvailabilityIntoHTML(availability);
@@ -194,7 +194,7 @@ function ProfileCard({ id, name, title, profilePic, skills, interests, achieveme
                         </NameTitle>
                     </Link>
                 </PicNameTitle>
-                <ButtonPopover icon={Plus} text="New request" allSkills={allSkills} />
+                <ButtonPopover icon={Plus} text="New request"/>
                 <ToastContainer limit={1} />
                 {/* <Button type='primary' icon={Plus} text="New request" showPopover /> */}
             </TopProfile>

@@ -58,7 +58,6 @@ function HomePage() {
         interests={user.interests}
         achievements={user.achievements}
         availability={user.availability}
-        allSkills={allSkills}
       />
     )
   }
